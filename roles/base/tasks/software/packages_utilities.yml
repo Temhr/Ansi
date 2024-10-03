@@ -18,6 +18,7 @@
       - lsof
       - mc
       - mosh
+      - nala
       - ncdu
       - neofetch
       - net-tools
