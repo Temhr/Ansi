@@ -4,7 +4,13 @@
   user:
     name: ansibot
     system: yes
-
+    
+- name: users | ansibot | create ansibot group
+  tags: groups,ansibot,users
+  group:
+    name: ansibot
+    state: present
+    
 - name: users | ansibot | add sudoers file
   tags: settings,ansibot,sudo,system,users
   copy:
