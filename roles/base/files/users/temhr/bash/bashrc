@@ -41,15 +41,6 @@ case :$PATH: in
 	*) PATH=/home/$USER/.local/bin:$PATH ;;
 esac
 
-# Enable tab completion for tmux
-source /home/jay/.tmux/plugins/completion/tmux
-
-# Add /home/$USER/.tmux/tmuxifier to $PATH
-case :$PATH: in
-	*:/home/$USER/.tmux/tmuxifier/bin:*) ;;
-	*) PATH=/home/$USER/.tmux/tmuxifier/bin:$PATH ;;
-esac
-
 # Safetynets
 # do not delete / or prompt if deleting more than 3 files at a time #
 alias rm='rm -I --preserve-root'
