@@ -11,3 +11,5 @@ sudo NEEDRESTART_MODE=a apt install git -y
 sudo NEEDRESTART_MODE=a apt install ansible -y
 
 sudo ansible-pull -U https://github.com/Temhr/Ansi.git
+
+sudo reboot
