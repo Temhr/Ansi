@@ -3,7 +3,7 @@
 - name: system setup | cron | install cron job (ansible-pull)
   tags: cron
   cron:
-    user: ansible
+    user: ansibot
     name: "ansible provision"
     minute: "*/10"
     job: "/usr/bin/ansible-pull -o -U https://github.com/Temhr/Ansi.git > /dev/null"
