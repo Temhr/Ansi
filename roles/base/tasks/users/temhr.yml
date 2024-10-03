@@ -7,7 +7,7 @@
 - name: users | temhr | temhr | add sudoers file
   tags: temhr,settings,ansibot,sudo,system,users
   copy:
-    src: users/sudoers_temhr
+    src: files/users/sudoers_temhr
     dest: /etc/sudoers.d/temhr
     owner: root
     group: root
@@ -30,7 +30,7 @@
 - name: users | temhr | copy dotfiles
   tags: dotfiles,users,temhr,users
   copy:
-    src: users/temhr/{{ item.src }}
+    src: files/users/temhr/{{ item.src }}
     dest: /home/temhr/{{ item.dest }}
     owner: temhr
     group: temhr
