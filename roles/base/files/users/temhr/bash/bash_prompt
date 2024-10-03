@@ -1,2 +1,11 @@
+# declares an array with the emojis we want to support
+EMOJIS=(😺 😸 😹 😻 😼 😽 🙀 😿 😾)
+
+# function that selects and return a random element from the EMOJIS set
+RANDOM_EMOJI() {
+  SELECTED_EMOJI=${EMOJIS[$RANDOM % ${#EMOJIS[@]}]};
+  echo $SELECTED_EMOJI;
+}
+
 # PS1 Prompt
-tty -s && export PS1="\[\033[38;5;35m\]\t [\[\033[38;5;33m\]\j\[\033[38;5;35m\]] [\h:\[$(tput sgr0)\]\[\033[38;5;33m\]\w\[$(tput setaf 3)\]\[\033[38;5;35m\]]\n\\[\033[38;5;35m\]🦄 \[$(tput sgr0)\]"
+tty -s && export PS1="\[\033[38;5;35m\]\t [\[\033[38;5;33m\]\j\[\033[38;5;35m\]] [\h:\[$(tput sgr0)\]\[\033[38;5;33m\]\w\[$(tput setaf 3)\]\[\033[38;5;35m\]]\n\\[\033[38;5;35m\]$(RANDOM_EMOJI) \[$(tput sgr0)\]"
