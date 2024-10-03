@@ -6,6 +6,7 @@
       - at
       - busybox
       - colordiff
+      - cron
       - curl
       - git
       - htop
