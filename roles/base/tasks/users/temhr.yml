@@ -42,6 +42,4 @@
     - { src: 'bash/bash_functions', dest: '.bash/bash_functions' }
     - { src: 'bash/bashrc', dest: '.bashrc' }
     - { src: 'bash/profile', dest: '.profile' }
-    - { src: 'htop/htoprc', dest: '.config/htop/htoprc' }
     - { src: 'inputrc', dest: '.inputrc' }
-    - { src: 'mc/mc.ini', dest: '.config/mc/ini' }
