@@ -3,5 +3,5 @@
   package:
     state: absent
     name:
-      - cowsay
+      - vi
   when: ansible_distribution in ["Debian"]
