@@ -3,13 +3,17 @@
   package:
     state: latest
     name:
+      - adb
       - at
       - busybox
       - colordiff
       - cron
       - curl
+      - ethtool
+      - gcc
       - git
       - htop
+      - iperf
       - iotop
       - lsof
       - mc
@@ -22,8 +26,10 @@
       - rsync
       - screen
       - sshfs
+      - sudo
       - tmux
       - traceroute
-      - vim
+      - usbutils
+      - vim-nox
       - wget
       - whois
