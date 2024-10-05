@@ -3,4 +3,4 @@
   package:
     state: absent
     name:
-      - top
+      - vi
