@@ -1,5 +1,5 @@
-- name: workstation | tasks | distro package cleanup (debian)
-  tags: cleanup,packages,system,distro
+- name: workstation | tasks | distro package cleanup
+  tags: cleanup,packages,tasks,distro
   package:
     state: absent
     name:
