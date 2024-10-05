@@ -1,0 +1,6 @@
+- name: system setup | package cleanup | remove unneeded workstation packages (debian)
+  tags: cleanup,packages,system,settings
+  package:
+    state: absent
+    name:
+      - top
