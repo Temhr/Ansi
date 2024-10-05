@@ -1,0 +1,9 @@
+- name: workstation | tasks | install distro packages
+  tags: packages,system,distro
+  package:
+    state: latest
+    name:
+      - distrobox
+      - firefox
+      - keepassxc
+      - podman
