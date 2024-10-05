@@ -1,5 +1,5 @@
 - name: workstation | tasks | install distro packages
-  tags: packages,system,distro
+  tags: packages,workstation,distro
   package:
     state: latest
     name:
