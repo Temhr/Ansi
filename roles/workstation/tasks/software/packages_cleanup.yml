@@ -1,5 +1,5 @@
 - name: workstation | tasks | distro package cleanup
-  tags: cleanup,packages,tasks,distro
+  tags: cleanup,packages,tasks,distro,workstation
   package:
     state: absent
     name:
