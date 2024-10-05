@@ -1,8 +1,8 @@
 [server]
 pve
+Deb12
 
 [workstation]
-Deb12
 deb
 debase
 sid
