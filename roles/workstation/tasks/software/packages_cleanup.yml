@@ -1,5 +1,5 @@
-- name: system setup | package cleanup | remove unneeded workstation packages (debian)
-  tags: cleanup,packages,system,settings
+- name: workstation | tasks | distro package cleanup (debian)
+  tags: cleanup,packages,system,distro
   package:
     state: absent
     name:
