@@ -2,7 +2,7 @@
 
 - name: system setup | cron | install cron job (ansible-pull)
   tags: cron
-  cron:
+  ansible.builtin.cron:
     user: ansibot
     name: "ansible provision"
     minute: "*/10"
@@ -10,7 +10,7 @@
 
 - name: system setup | cron | schedule ansible cleanup at boot
   tags: cron
-  cron:
+  ansible.builtin.cron:
     name: "ansible refresh at boot"
     user: ansibot
     special_time: reboot
