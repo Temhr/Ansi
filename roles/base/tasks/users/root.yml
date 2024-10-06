@@ -6,7 +6,7 @@
 #    password_lock: yes
 
 - name: users | root | copy dotfiles
-  copy:
+  ansible.builtin.copy:
     src: files/users/root/{{ item.src }}
     dest: /root/{{ item.dest}}
     owner: root
