@@ -16,6 +16,6 @@ else
     if [ ! $1 == "" ]; then
         $PRECMD sudo -iH -u $ANSIBLEUSER ansible-pull -U $REPO -C $BRANCH --tags $1 2>&1
     else
-        $PRECMD sudo -iH -u $ANSIBLEUSER ansible-pull-o -U $REPO -C $BRANCH 2>&1
+        $PRECMD sudo -iH -u $ANSIBLEUSER ansible-pull -o -U $REPO -C $BRANCH 2>&1
     fi
 fi
