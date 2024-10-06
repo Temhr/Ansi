@@ -4,3 +4,4 @@
     state: absent
     name:
       - vi
+      - scrcpy
