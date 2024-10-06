@@ -10,7 +10,7 @@
       ansible.builtin.apt: 
         update_cache: yes 
         upgrade: safe
-      changed_when: False
+      changed_when: false
 
 # run roles
 - hosts: all
