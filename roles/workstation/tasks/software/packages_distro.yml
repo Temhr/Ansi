@@ -1,9 +1,10 @@
 - name: workstation | tasks | install distro packages
   tags: install,packages,tasks,distro,workstation
-  package:
+  ansible.builtin.package:
     state: latest
     name:
       - distrobox
       - firefox
       - keepassxc
       - podman
+      - scrcpy
