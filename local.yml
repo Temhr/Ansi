@@ -11,8 +11,6 @@
         update_cache: yes 
         upgrade: safe
       changed_when: False
-      when:
-        - ansible_distribution in ["Debian"]
 
 # run roles
 - hosts: all
