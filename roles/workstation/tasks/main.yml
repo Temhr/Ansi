@@ -1,5 +1,8 @@
 - block:
 
+  # set up home folder
+  - import_tasks: users/home_temhr.yml
+  
   # set up flatpak environment
   - import_tasks: flatpak_setup.yml
   
