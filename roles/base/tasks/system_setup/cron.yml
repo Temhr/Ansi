@@ -6,7 +6,7 @@
     name: "ansible provision"
     user: ansibot
     minute: "*/5"
-    job: "ansible-pull -o -U https://github.com/Temhr/Ansi.git > /var/tmp/AnsiLog.txt"
+    job: "sudo -iH -u ansibot ansible-pull -o -U https://github.com/Temhr/Ansi.git > /var/tmp/AnsiLog.txt"
 
 #- name: system setup | cron | schedule automatic ansible provisioning
 #  tags: cron
