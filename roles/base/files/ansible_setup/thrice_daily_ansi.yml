@@ -4,24 +4,18 @@
 - hosts: localhost
   tags: always
   become: true
-  pre_tasks:
-    - name: pre-run | update package cache and upgrade all packages
-      tags: always
-      ansible.builtin.apt: 
-        update_cache: true 
-        upgrade: safe
-      changed_when: false
 
   tasks:
-  - name: cleanup package cache (debian)
-    tags: always
+  - name: Installs new packages to resolve new dependencies, but never removes packages
+    ansible.builtin.apt:
+      update_cache: true
+      upgrade: safe
+
+  - name: Remove useless packages from the cache
     ansible.builtin.apt:
       autoclean: true
-    changed_when: false
 
-  - name: autoremove orphan packages (debian)
-    tags: always
+  - name: Remove dependencies that are no longer required and purge their configuration files
     ansible.builtin.apt:
-      autoremove: true
+      autoremove: yes
       purge: true
-    changed_when: false
