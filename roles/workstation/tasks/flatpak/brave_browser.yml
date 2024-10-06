@@ -1,0 +1,7 @@
+- name: flatpak | brave browser | install package
+  tags: packages,brave,flatpak,workstation-packages
+  become_user: temhr
+  community.general.flatpak:
+    name: com.brave.Browser
+    method: user
+    state: latest
