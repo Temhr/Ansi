@@ -13,8 +13,8 @@ if pgrep -f ansible-pull; then
     exit 1
 else
     if [ ! $1 == "" ]; then
-        $PRECMD sudo ansible-pull -U $REPO --tags $1 2>&1
+        sudo ansible-pull -U $REPO --tags $1 2>&1
     else
-        $PRECMD sudo ansible-pull -o -U $REPO 2>&1
+        sudo ansible-pull -o -U $REPO 2>&1
     fi
 fi
