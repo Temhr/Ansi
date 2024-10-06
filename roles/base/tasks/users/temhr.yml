@@ -1,6 +1,6 @@
 - name: users | temhr | create group
   tags: groups,temhr,users
-  group:
+  ansible.builtin.group:
     name: temhr
     state: present
 
