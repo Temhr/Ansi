@@ -17,6 +17,11 @@
     minute: "{{ ansible_cron_minute | default('*/5') }}"
     job: "/usr/local/bin/provision > /var/tmp/log.txt"
 
+- name: system setup | cron | start service
+  ansible.builtin.systemd_service:
+    name: cron
+    state: started
+
 - name: system setup | cron | schedule ansible cleanup at boot
   tags: cron
   ansible.builtin.cron:
