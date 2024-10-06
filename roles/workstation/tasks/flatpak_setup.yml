@@ -11,9 +11,9 @@
     
 - name: system setup | tasks | flatpak | add flathub remote
   tags: packages,flatpak,workstation-packages
-  become_user: temhr
   community.general.flatpak_remote:
     name: flathub
+    state: present
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
     method: user
     state: present
