@@ -26,7 +26,7 @@
     mode: 0664
     state: touch
 
-- name: system setup | cron | auto thrice daily ansible cronjob
+- name: system setup | cron | thrice daily update/upgrade
   tags: cron
   ansible.builtin.cron:
     name: "ansible thrice daily"
