@@ -1,9 +1,14 @@
 # set up flatpak support
-- name: system setup | tweaks | add flatpak support
+- name: system setup | tasks | install flatpak
   ansible.builtin.package:
     name: flatpak
     state: present
-
+    
+- name: system setup | tasks | add DE flatpak support (Plasma)
+  tags: plasma,plasma-packages
+  ansible.builtin.package:
+    name: plasma-discover-backend-flatpak
+    
 - name: system setup | tweaks | flatpak | add flathub remote
   tags: packages,flatpak,workstation-packages
   become_user: temhr
