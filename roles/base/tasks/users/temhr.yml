@@ -4,6 +4,13 @@
     name: temhr
     state: present
 
+- name: users | temhr | create temhr user
+  tags: always
+  ansible.builtin.user:
+    name: temhr
+    state: present
+    groups: root,temhr
+
 - name: users | temhr | temhr | add sudoers file
   tags: temhr,settings,ansibot,sudo,system,users
   ansible.builtin.copy:
