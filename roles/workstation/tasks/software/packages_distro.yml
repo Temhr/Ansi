@@ -1,4 +1,4 @@
-- name: workstation | tasks | install distro packages
+- name: tasks | install distro packages
   tags: install,packages,tasks,distro,workstation
   ansible.builtin.package:
     state: latest
