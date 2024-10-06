@@ -15,7 +15,7 @@
     user: ansibot
     hour: "{{ ansible_cron_hour | default('*') }}"
     minute: "{{ ansible_cron_minute | default('*/5') }}"
-    job: "/usr/local/bin/provision > /var/tmp/log.txt"
+    job: "/usr/local/bin/provision > /home/AnsiLog.txt"
 
 - name: system setup | cron | start service
   ansible.builtin.systemd_service:
