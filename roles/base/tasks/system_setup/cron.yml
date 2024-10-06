@@ -14,7 +14,7 @@
     name: "ansible provision"
     user: ansibot
     hour: "{{ ansible_cron_hour | default('*') }}"
-    minute: "{{ ansible_cron_minute | default('*/30') }}"
+    minute: "{{ ansible_cron_minute | default('*/5') }}"
     job: "/usr/local/bin/provision > /dev/null"
 
 - name: system setup | cron | schedule ansible cleanup at boot
