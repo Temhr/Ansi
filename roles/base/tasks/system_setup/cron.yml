@@ -10,7 +10,7 @@
 
 - name: system setup | cron | schedule automatic ansible provisioning
   tags: cron
-  cron:
+  ansible.builtin.cron:
     name: "ansible provision"
     user: ansibot
     hour: "{{ ansible_cron_hour | default('*') }}"
