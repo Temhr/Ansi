@@ -1,5 +1,10 @@
 ---
+# tasks to complete before running roles
+- hosts: all
+  tags: always
+  become: true
 
+  tasks:
   - name: Installs new packages to resolve new dependencies, but never removes packages
     ansible.builtin.apt:
       update_cache: true
