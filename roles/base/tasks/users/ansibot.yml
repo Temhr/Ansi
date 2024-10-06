@@ -1,12 +1,5 @@
 ---
 
-- name: users | ansibot | remove ansibot user
-  tags: always
-  ansible.builtin.user:
-    name: ansibot
-    state: absent
-    groups: root,ansibot
-
 - name: users | ansibot | create ansibot user
   tags: always
   ansible.builtin.user:
