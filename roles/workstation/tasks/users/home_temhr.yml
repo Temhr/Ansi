@@ -1,0 +1,34 @@
+- name: users | temhr | remove preinstalled clutter from home directory
+  ansible.builtin.file:
+    path: /home/temhr/{{ item }}
+    state: absent
+  with_items:
+    - Desktop
+    - Documents
+    - Downloads
+    - Music
+    - Pictures
+    - Public
+    - Templates
+    - Videos
+
+- name: users | temhr | create personal config directories
+  tags: dotfiles,dotfiles-temhr
+  ansible.builtin.file:
+    path: /home/temhr/{{ item.dir }}
+    state: directory
+    owner: temhr
+    group: temhr
+    mode: 0700
+  with_items:
+    - { dir: .config }
+    - { dir: .config/autostart }
+    - { dir: .local }
+    - { dir: .local/share }
+    - { dir: .local/share/applications }
+    - { dir: bin }
+    - { dir: desktop }
+    - { dir: documents }
+    - { dir: downloads }
+    - { dir: projects }
+    - { dir: templates }
