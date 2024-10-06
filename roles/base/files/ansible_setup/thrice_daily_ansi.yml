@@ -1,0 +1,27 @@
+---
+
+# tasks to complete before running roles
+- hosts: all
+  tags: always
+  become: true
+  pre_tasks:
+    - name: pre-run | update package cache and upgrade all packages
+      tags: always
+      ansible.builtin.apt: 
+        update_cache: true 
+        upgrade: safe
+      changed_when: false
+
+  tasks:
+  - name: cleanup package cache (debian)
+    tags: always
+    ansible.builtin.apt:
+      autoclean: true
+    changed_when: false
+
+  - name: autoremove orphan packages (debian)
+    tags: always
+    ansible.builtin.apt:
+      autoremove: true
+      purge: true
+    changed_when: false
