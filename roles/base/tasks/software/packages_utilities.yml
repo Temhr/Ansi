@@ -5,6 +5,7 @@
     name:
       - adb
       - at
+      - autofs
       - busybox
       - colordiff
       - cron
