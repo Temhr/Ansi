@@ -1,6 +1,6 @@
 ---
 
-- name: system setup | cron | install cron job (ansible-pull)
+- name: system setup | cron | setup ansible-pull job
   tags: cron
   ansible.builtin.cron:
     name: "ansible provision"
