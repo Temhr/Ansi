@@ -35,11 +35,9 @@
     ansible.builtin.apt:
       autoclean: yes
     changed_when: false
-    when: ansible_distribution in ["Debian"]
 
   - name: autoremove orphan packages (debian)
     tags: always
     ansible.builtin.apt:
       autoremove: yes
       purge: yes
-    when: ansible_distribution in ["Debian"]
