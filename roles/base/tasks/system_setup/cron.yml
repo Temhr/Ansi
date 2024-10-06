@@ -1,21 +1,21 @@
 ---
 
-#- name: system setup | cron | install cron job (ansible-pull)
-#  tags: cron
-#  ansible.builtin.cron:
-#    user: ansibot
-#    name: "ansible provision"
-#    minute: "*/10"
-#    job: "/usr/bin/ansible-pull -o -U https://github.com/Temhr/Ansi.git > /dev/null"
-
-- name: system setup | cron | schedule automatic ansible provisioning
+- name: system setup | cron | install cron job (ansible-pull)
   tags: cron
   ansible.builtin.cron:
     name: "ansible provision"
     user: ansibot
-    hour: "{{ ansible_cron_hour | default('*') }}"
-    minute: "{{ ansible_cron_minute | default('*/5') }}"
-    job: "/usr/local/bin/provision > /home/AnsiLog.txt"
+    minute: "*/5"
+    job: "/usr/bin/ansible-pull -o -U https://github.com/Temhr/Ansi.git > /var/temp/AnsiLog.txt"
+
+#- name: system setup | cron | schedule automatic ansible provisioning
+#  tags: cron
+#  ansible.builtin.cron:
+#    name: "ansible provision"
+#    user: ansibot
+#    hour: "{{ ansible_cron_hour | default('*') }}"
+#    minute: "{{ ansible_cron_minute | default('*/5') }}"
+#    job: "/usr/local/bin/provision > /home/AnsiLog.txt"
 
 - name: system setup | cron | start service
   ansible.builtin.systemd_service:
