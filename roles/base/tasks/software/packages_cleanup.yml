@@ -4,4 +4,3 @@
     state: absent
     name:
       - vi
-  when: ansible_distribution in ["Debian"]
