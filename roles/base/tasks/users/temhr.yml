@@ -6,7 +6,7 @@
 
 - name: users | temhr | temhr | add sudoers file
   tags: temhr,settings,ansibot,sudo,system,users
-  copy:
+  ansible.builtin.copy:
     src: files/users/sudoers_temhr
     dest: /etc/sudoers.d/temhr
     owner: root
@@ -15,7 +15,7 @@
 
 - name: users | temhr | create config directories
   tags: dotfiles,temhr,users,vim
-  file:
+  ansible.builtin.file:
     path: /home/temhr/{{ item.dir }}
     state: directory
     owner: temhr
@@ -29,7 +29,7 @@
 
 - name: users | temhr | copy dotfiles
   tags: dotfiles,users,temhr,users
-  copy:
+  ansible.builtin.copy:
     src: files/users/temhr/{{ item.src }}
     dest: /home/temhr/{{ item.dest }}
     owner: temhr
