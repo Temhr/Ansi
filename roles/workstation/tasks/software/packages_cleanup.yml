@@ -1,6 +1,6 @@
 - name: workstation | tasks | distro package cleanup
   tags: cleanup,packages,tasks,distro,workstation
-  package:
+  ansible.builtin.package:
     state: absent
     name:
       - vi
