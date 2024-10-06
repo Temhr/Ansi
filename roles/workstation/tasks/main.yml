@@ -9,7 +9,7 @@
   - import_tasks: software/packages_utilities.yml
   
   # install flatpaks
-  #- import_tasks: flatpak/packages_cleanup.yml
+  #- import_tasks: flatpak/brave_browser.yml
 
   rescue:
     - set_fact: task_failed=true
