@@ -27,6 +27,7 @@
 #    job: "/usr/local/bin/provision > /home/AnsiLog.txt"
 
 - name: system setup | cron | start service on boot
+  tags: cron,systemd_service,boot
   ansible.builtin.systemd_service:
     name: cron
     enabled: True
