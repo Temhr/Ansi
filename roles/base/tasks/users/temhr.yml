@@ -9,7 +9,7 @@
   ansible.builtin.user:
     name: temhr
     state: present
-    groups: root,temhr
+    group: temhr
 
 - name: users | temhr | temhr | add sudoers file
   tags: temhr,settings,ansibot,sudo,system,users
