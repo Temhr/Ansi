@@ -1,5 +1,14 @@
 ---
 
+- name: system setup | cron | auto ansible-pull log file
+  tags: cron
+  ansible.builtin.file:
+    path: /var/tmp/AnsiLog.txt
+    owner: ansibot
+    group: root
+    mode: 0664
+    state: touch
+
 - name: system setup | cron | auto ansible-pull setup
   tags: cron
   ansible.builtin.cron:
