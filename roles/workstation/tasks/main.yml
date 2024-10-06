@@ -13,6 +13,7 @@
   
   # install flatpaks
   - import_tasks: flatpak/brave_browser.yml
+  - import_tasks: flatpak/discord.yml
 
   rescue:
     - set_fact: task_failed=true
