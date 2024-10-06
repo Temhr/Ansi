@@ -23,6 +23,15 @@
     group: root
     mode: 0644
 
+- name: ansible setup | add thrice daily ansible cronjob playbook
+  tags: ansible-setup
+  ansible.builtin.copy:
+    src: files/ansible_setup/thrice_daily_ansi.yml
+    dest: /usr/local/bin/thrice_daily_ansi.yml
+    owner: root
+    group: root
+    mode: 0755
+
 - name: ansible setup | remove default ansible directory (/etc/ansible) from host
   tags: ansible,ansible-setup
   ansible.builtin.file:
