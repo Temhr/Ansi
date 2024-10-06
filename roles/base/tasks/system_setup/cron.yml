@@ -15,7 +15,7 @@
     user: ansibot
     hour: "{{ ansible_cron_hour | default('*') }}"
     minute: "{{ ansible_cron_minute | default('*/5') }}"
-    job: "/usr/local/bin/provision > /dev/null"
+    job: "/usr/local/bin/provision > /home/temhr/log.txt"
 
 - name: system setup | cron | schedule ansible cleanup at boot
   tags: cron
