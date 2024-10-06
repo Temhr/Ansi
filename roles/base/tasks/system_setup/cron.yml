@@ -17,6 +17,23 @@
     minute: "*/15"
     job: "/usr/bin/ansible-pull -o -U https://github.com/Temhr/Ansi.git > /var/tmp/AnsiLog.txt"
 
+- name: system setup | cron | auto ansible-pull log file
+  tags: cron
+  ansible.builtin.file:
+    path: /var/tmp/Ansi3Log.txt
+    owner: ansibot
+    group: root
+    mode: 0664
+    state: touch
+
+- name: system setup | cron | auto thrice daily ansible cronjob
+  tags: cron
+  ansible.builtin.cron:
+    name: "ansible thrice daily"
+    user: ansibot
+    hour: "*/8"
+    job: "ansible-playbook /usr/local/bin/thrice_daily_ansi.yml -f 10 > /var/tmp/Ansi3Log.txt"
+
 #- name: system setup | cron | schedule automatic ansible provisioning
 #  tags: cron
 #  ansible.builtin.cron:
