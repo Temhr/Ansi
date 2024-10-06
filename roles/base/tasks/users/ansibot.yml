@@ -1,4 +1,9 @@
 ---
+- name: users | ansibot | create group
+  tags: groups,ansibot,users
+  group:
+    name: ansibot
+    state: present
 
 - name: users | ansibot | create ansibot user
   tags: always
