@@ -1,12 +1,12 @@
 - name: ansible setup | ensure ansible is the latest version
   tags: ansible,ansible-setup
-  package:
+  ansible.builtin.package:
     name: ansible
     state: latest
 
 - name: ansible setup | create ansible log file
   tags: ansible,ansible-setup
-  file:
+  ansible.builtin.file:
     path: /var/log/ansible.log
     owner: ansibot
     group: ansibot
@@ -16,7 +16,7 @@
 
 - name: ansible setup | add logrotate config for ansible log file
   tags: ansible-setup
-  copy:
+  ansible.builtin.copy:
     src: files/ansible_setup/logrotate
     dest: /etc/logrotate.d/ansible
     owner: root
@@ -25,7 +25,7 @@
 
 - name: ansible setup | remove default ansible directory (/etc/ansible) from host
   tags: ansible,ansible-setup
-  file:
+  ansible.builtin.file:
     path: /etc/ansible
     state: absent
 
