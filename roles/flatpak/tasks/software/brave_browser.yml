@@ -1,0 +1,5 @@
+- name: flatpak | brave browser | install package
+  tags: packages,brave,flatpak,workstation-packages
+  community.general.flatpak:
+    name: com.brave.Browser
+    state: latest
