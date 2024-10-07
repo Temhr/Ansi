@@ -1,0 +1,7 @@
+- block:
+
+  # install repo/software
+  - import_tasks: software/repo_syncthing.yml
+
+  rescue:
+    - set_fact: task_failed=true
