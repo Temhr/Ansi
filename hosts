@@ -3,11 +3,11 @@ pve
 Deb12
 deb
 
-[workstation]
-debase
-sid
-
 [server]
 debase
 pve
+sid
+
+[workstation]
+debase
 sid
