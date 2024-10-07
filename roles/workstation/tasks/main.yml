@@ -4,7 +4,7 @@
   - import_tasks: users/home_temhr.yml
   
   # set up flatpak environment
-  #- import_tasks: flatpak_setup.yml
+  - import_tasks: flatpak_setup.yml
   
   # install software
   - import_tasks: software/packages_cleanup.yml
@@ -12,8 +12,8 @@
   - import_tasks: software/packages_utilities.yml
   
   # install flatpaks
-  #- import_tasks: flatpak/brave_browser.yml
-  #- import_tasks: flatpak/discord.yml
+  - import_tasks: flatpak/brave_browser.yml
+  - import_tasks: flatpak/discord.yml
 
   rescue:
     - set_fact: task_failed=true
