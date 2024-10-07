@@ -6,3 +6,8 @@ deb
 [workstation]
 debase
 sid
+
+[server]
+debase
+sid
+pve
