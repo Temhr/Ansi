@@ -1,4 +1,5 @@
 ---
+
 - name: Check if keyring exists
   ansible.builtin.stat:
     path: /etc/apt/keyrings/syncthing-archive-keyring.gpg
