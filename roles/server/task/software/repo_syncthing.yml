@@ -21,7 +21,7 @@
       deb [signed-by=/etc/apt/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable
     mode: "0644"
 
-- name: Install syncthing
+- name: Install Syncthing
   ansible.builtin.apt:
     name: syncthing
     state: latest
