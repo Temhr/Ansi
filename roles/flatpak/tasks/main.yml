@@ -1,0 +1,18 @@
+# set up flatpak support
+- name: system setup | tasks | flatpak | install flatpak
+  ansible.builtin.package:
+    name: flatpak
+    state: present
+    
+- name: system setup | tasks | flatpak | add DE flatpak support (Plasma)
+  tags: plasma,plasma-packages
+  ansible.builtin.package:
+    name: plasma-discover-backend-flatpak
+    
+- name: system setup | tasks | flatpak | add flathub remote
+  tags: packages,flatpak,workstation-packages
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+    state: present
