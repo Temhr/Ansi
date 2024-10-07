@@ -6,4 +6,5 @@
       - distrobox
       - firefox
       - keepassxc
+      - kio-gdrive
       - podman
