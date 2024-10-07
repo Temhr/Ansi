@@ -24,6 +24,6 @@
 - name: Install Syncthing
   ansible.builtin.apt:
     name: syncthing
-    state: latest
+    state: present
     update_cache: true
   become: true
