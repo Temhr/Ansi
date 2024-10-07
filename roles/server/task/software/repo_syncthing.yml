@@ -1,11 +1,5 @@
 ---
 
-- name: create keyring directory
-  ansible.builtin.file:
-    path: /etc/apt/keyrings
-    state: directory
-    mode: 0755
-
 - name: Check if keyring exists
   ansible.builtin.stat:
     path: /etc/apt/keyrings/syncthing-archive-keyring.gpg
@@ -19,7 +13,7 @@
   when: not keyring_file.stat.exists
   become: true
 
-- name: Add Syncthing stable channel repository to list of repositories
+- name: Add syncthing repository to list of repositories
   become: true
   ansible.builtin.copy:
     dest: /etc/apt/sources.list.d/syncthing.list
@@ -27,9 +21,9 @@
       deb [signed-by=/etc/apt/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable
     mode: "0644"
 
-- name: Install Syncthing
+- name: Install syncthing
   ansible.builtin.apt:
     name: syncthing
-    state: present
+    state: latest
     update_cache: true
   become: true
