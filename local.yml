@@ -25,6 +25,12 @@
   roles: 
      - workstation
 
+- hosts: server
+  tags: server
+  become: true
+  roles: 
+     - server
+     
 # end of run cleanup
 - hosts: all
   tags: always
