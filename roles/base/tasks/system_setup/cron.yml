@@ -14,7 +14,7 @@
   ansible.builtin.cron:
     name: "ansible provision"
     user: ansibot
-    minute: "*/15"
+    minute: "*/17"
     job: "/usr/bin/ansible-pull -o -U https://github.com/Temhr/Ansi.git > /var/tmp/AnsiLog.txt"
 
 - name: system setup | cron | auto ansible-pull log file
