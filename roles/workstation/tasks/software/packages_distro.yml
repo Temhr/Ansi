@@ -3,6 +3,7 @@
   ansible.builtin.package:
     state: latest
     name:
+      - calibre
       - distrobox
       - firefox
       - keepassxc
