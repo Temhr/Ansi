@@ -11,7 +11,8 @@
   # install repository & software
   - import_tasks: repositories/brave_browser.yml
   
-  # set up flatpak environment
+  # set up software environments
+  - import_tasks: steamos_setup.yml
   - import_tasks: flatpak_setup.yml
   
   # install flatpaks
