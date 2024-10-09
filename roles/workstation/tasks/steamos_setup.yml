@@ -1,10 +1,10 @@
 # set up flatpak support
-- name: steamos
+- name: steamos setup
   ansible.builtin.command:
     argv:
       - distrobox create
       - --home /home/temhr/containers/steamos
-      - --name steamos
+      - --name dreamos
       - --image ghcr.io/linuxserver/steamos:latest
-      - --hostname steamos
+      - --hostname dreamos
       - printf '\n'
