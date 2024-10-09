@@ -11,7 +11,7 @@
   - import_tasks: software/packages_distro.yml
   - import_tasks: software/packages_utilities.yml
   
-  # install repo/software
+  # install repository & software
   - import_tasks: repository/brave_browser.yml
   
   # install flatpaks
