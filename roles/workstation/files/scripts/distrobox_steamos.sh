@@ -4,4 +4,6 @@ mkdir /home/temhr/containers/steam
 
 distrobox create --home /home/temhr/containers/steam --name steamos --image ghcr.io/linuxserver/steamos:latest --hostname steamos
 
+printf '\n'
+
 distrobox enter steamos
