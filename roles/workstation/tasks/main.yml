@@ -1,6 +1,6 @@
 - block:
 
-  # set up home folder
+  # setup home folder
   - import_tasks: users/home_temhr.yml
   
   # install software
@@ -11,7 +11,7 @@
   # install repository & software
   - import_tasks: repositories/brave_browser.yml
   
-  # set up software environments
+  # setup software environments
   - import_tasks: setup_steamos.yml
   - import_tasks: setup_flatpak.yml
   
