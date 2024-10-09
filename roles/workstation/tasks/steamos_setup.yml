@@ -1,4 +1,14 @@
 # set up flatpak support
+- name: mk directories for steam
+  ansible.builtin.file:
+    path: /home/temhr/{{ item.dir }}
+    state: directory
+    owner: temhr
+    group: temhr
+  with_items:
+    - { dir: containers }
+    - { dir: containers/steamos }
+
 - name: steamos setup
   ansible.builtin.command:
     argv:
