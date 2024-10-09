@@ -12,7 +12,7 @@
   - import_tasks: software/packages_utilities.yml
   
   # install repository & software
-  - import_tasks: repository/brave_browser.yml
+  - import_tasks: repositories/brave_browser.yml
   
   # install flatpaks
   - import_tasks: flatpak/discord.yml
