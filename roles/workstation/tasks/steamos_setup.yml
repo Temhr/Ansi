@@ -17,4 +17,5 @@
       - --name dreamos
       - --image ghcr.io/linuxserver/steamos:latest
       - --hostname dreamos
+      - --nvidia      
       - printf '\n'
