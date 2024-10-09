@@ -10,6 +10,4 @@
     - { dir: containers/steamos }
 
 - name: steamos setup
-  ansible.builtin.command:
-    argv:
-      - distrobox create --home /home/temhr/containers/steamos --name dreamos --image ghcr.io/linuxserver/steamos:latest --hostname dreamos --nvidia
+  ansible.builtin.command: distrobox create --home /home/temhr/containers/steamos --name dreamos --image ghcr.io/linuxserver/steamos:latest --hostname dreamos --nvidia
