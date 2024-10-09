@@ -3,7 +3,7 @@
 - name: system setup | cron | auto ansible-pull log file
   tags: cron
   ansible.builtin.file:
-    path: /var/tmp/AnsiLog.txt
+    path: /home/temhr/AnsiLog.txt
     owner: ansibot
     group: root
     mode: 0664
@@ -15,12 +15,12 @@
     name: "ansible provision"
     user: ansibot
     minute: "*/17"
-    job: "/usr/bin/ansible-pull -o -U https://github.com/Temhr/Ansi.git > /var/tmp/AnsiLog.txt"
+    job: "/usr/bin/ansible-pull -o -U https://github.com/Temhr/Ansi.git > /home/temhr/AnsiLog.txt"
 
 - name: system setup | cron | auto ansible-pull log file
   tags: cron
   ansible.builtin.file:
-    path: /var/tmp/Ansi.txt
+    path: /home/temhr/Ansi.txt
     owner: ansibot
     group: root
     mode: 0664
@@ -32,7 +32,7 @@
     name: "ansible thrice daily"
     user: ansibot
     hour: "*/8"
-    job: "ansible-playbook /usr/local/bin/thrice_daily_ansi.yml > /var/tmp/Ansi.txt"
+    job: "ansible-playbook /usr/local/bin/thrice_daily_ansi.yml > /home/temhr/Ansi.txt"
 
 #- name: system setup | cron | schedule automatic ansible provisioning
 #  tags: cron
