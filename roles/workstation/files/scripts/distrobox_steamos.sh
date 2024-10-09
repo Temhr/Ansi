@@ -1,8 +1,8 @@
 #!/bin/bash
 
-mkdir /home/temhr/containers/steam
+mkdir /home/temhr/containers/steamos
 
-distrobox create --home /home/temhr/containers/steam --name steamos --image ghcr.io/linuxserver/steamos:latest --hostname steamos
+distrobox create --home /home/temhr/containers/steamos --name steamos --image ghcr.io/linuxserver/steamos:latest --hostname steamos
 
 printf '\n'
 
