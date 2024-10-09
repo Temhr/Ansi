@@ -12,8 +12,8 @@
   - import_tasks: repositories/brave_browser.yml
   
   # set up software environments
-  - import_tasks: steamos_setup.yml
-  - import_tasks: flatpak_setup.yml
+  - import_tasks: setup_steamos.yml
+  - import_tasks: setup_flatpak.yml
   
   # install flatpaks
   - import_tasks: flatpak/discord.yml
