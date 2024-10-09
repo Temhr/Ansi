@@ -4,12 +4,12 @@
     path: /home/temhr/{{ item.dir }}
     state: directory
     owner: temhr
-    group: root
+    group: temhr
   with_items:
     - { dir: containers }
     - { dir: containers/steamos }
 
 - name: steamos setup
-  ansible.builtin.command: distrobox create --home /home/temhr/containers/steamos --name dreamos --image ghcr.io/linuxserver/steamos:latest --hostname dreamos --nvidia
+  ansible.builtin.command: distrobox create --home /home/temhr/containers/steamos --name steamos --image ghcr.io/linuxserver/steamos:latest --hostname steamos --nvidia
   become: yes
   become_user: temhr
