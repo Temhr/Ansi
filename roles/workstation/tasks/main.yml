@@ -14,6 +14,9 @@
   # setup software environments
   - import_tasks: setup_distrobox.yml
   - import_tasks: setup_flatpak.yml
+  
+  # setup nfs share
+  - import_tasks: setup_nfsclient.yml
 
   # install distrobox containers
   - import_tasks: distrobox/steamos.yml
