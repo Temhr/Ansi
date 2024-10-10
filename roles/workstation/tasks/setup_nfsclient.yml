@@ -9,7 +9,7 @@
   become: yes
   when: not auto_file.stat.exists
 
-- name: nfs client | auto.master
+- name: nfs client | copy auto.master
   tags: nfs
   ansible.builtin.copy:
     src: files/nfs_auto.master
