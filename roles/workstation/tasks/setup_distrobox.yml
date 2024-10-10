@@ -1,4 +1,4 @@
-# set up distrobox support
+# setup distrobox support
 - name: mk directories for distrobox containers
   ansible.builtin.file:
     path: /home/temhr/{{ item.dir }}
@@ -8,7 +8,7 @@
   with_items:
     - { dir: containers }
 
-# set up distrobox support
+# setup distrobox support
 - name: mk temp directories for ansible
   ansible.builtin.file:
     path: /tmp/temhr/.ansible/tmp
