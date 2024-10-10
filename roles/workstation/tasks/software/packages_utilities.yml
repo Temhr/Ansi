@@ -3,5 +3,5 @@
   ansible.builtin.package:
     state: latest
     name:
-      - zsh
       - nfs-common
+      - zsh
