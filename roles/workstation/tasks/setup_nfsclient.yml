@@ -5,8 +5,12 @@
 
 - name: nfs client | auto.master
   tags: nfs
-  ansible.builtin.command: echo '/mnt/nfs /etc/auto.nfs --ghost --timeout=60' >> /etc/auto.master
-  become: yes
+  ansible.builtin.copy:
+    src: files/nfs_auto.master
+    dest: /etc/auto.master
+    owner: root
+    group: root
+    mode: 0644
   when: not auto_file.stat.exists
 
 - name: nfs client | copy auto.nfs
