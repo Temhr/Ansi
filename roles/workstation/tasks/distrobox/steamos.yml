@@ -1,3 +1,8 @@
+- name: Check if 1st run
+  ansible.builtin.stat:
+    path: /home/temhr/containers/steamos/first
+  register: init_file
+
 # set up steamos support
 - name: mk directory for steamos
   ansible.builtin.file:
@@ -7,8 +12,10 @@
     group: root
   with_items:
     - { dir: containers/steamos }
-
+  when: not init_file.stat.exists
+  
 - name: steamos setup
   ansible.builtin.command: distrobox create --home /home/temhr/containers/steamos --name steamos --image ghcr.io/linuxserver/steamos:latest --hostname steamos --nvidia
   become: yes
   become_user: temhr
+  when: not init_file.stat.exists
