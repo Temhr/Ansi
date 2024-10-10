@@ -8,8 +8,8 @@
   tags: always
   ansible.builtin.user:
     name: temhr
+    group: root
     state: present
-    group: temhr
 
 - name: users | temhr | temhr | add sudoers file
   tags: temhr,settings,ansibot,sudo,system,users
@@ -26,7 +26,7 @@
     path: /home/temhr/{{ item.dir }}
     state: directory
     owner: temhr
-    group: temhr
+    group: root
     mode: 0700
   with_items:
     - { dir: '.bash' }
@@ -40,7 +40,7 @@
     src: files/users/temhr/{{ item.src }}
     dest: /home/temhr/{{ item.dest }}
     owner: temhr
-    group: temhr
+    group: root
     mode: 0600
   with_items:
     - { src: 'bash/bash_aliases', dest: '.bash/bash_aliases' }
