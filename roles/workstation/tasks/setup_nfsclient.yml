@@ -3,6 +3,12 @@
     path: /etc/auto.nfs
   register: auto_file
 
+- name: nfs client | save auto.master file
+  tags: nfs
+  ansible.builtin.command: mv /etc/auto.master /etc/auto.master.orig
+  become: yes
+  when: not auto_file.stat.exists
+
 - name: nfs client | auto.master
   tags: nfs
   ansible.builtin.copy:
