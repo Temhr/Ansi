@@ -15,8 +15,8 @@
     path: /home/temhr/{{ item.dir }}
     state: directory
     owner: temhr
-    group: temhr
-    mode: 0700
+    group: root
+    mode: 0760
   with_items:
     - { dir: .config }
     - { dir: .config/autostart }
