@@ -19,3 +19,11 @@
   become: yes
   become_user: temhr
   when: not init_file.stat.exists
+
+- name: steamos setup | 1st run done
+  tags: steamos
+  ansible.builtin.file:
+    path: /home/temhr/containers/steamos/first
+    owner: temhr
+    state: touch
+  when: not init_file.stat.exists
