@@ -5,6 +5,9 @@
   
   # install repository & software
   - import_tasks: repositories/syncthing.yml
+  
+  # install repository & software
+  - import_tasks: setup_nfsserver.yml
 
   rescue:
     - set_fact: task_failed=true
