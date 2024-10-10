@@ -1,6 +1,11 @@
 ---
 
-- name: system setup | cron | auto ansible-pull log file
+- name: system setup | cron | Check if ansible-pull logfile exists
+  ansible.builtin.stat:
+    path: /home/temhr/AnsiLog.txt
+  register: ansilog_file
+
+- name: system setup | cron | auto ansible-pull logfile
   tags: cron
   ansible.builtin.file:
     path: /home/temhr/AnsiLog.txt
@@ -8,6 +13,7 @@
     group: root
     mode: 0664
     state: touch
+  when: not ansilog_file.stat.exists
 
 - name: system setup | cron | auto ansible-pull setup
   tags: cron
@@ -17,6 +23,12 @@
     minute: "*/17"
     job: "/usr/bin/ansible-pull -o -U https://github.com/Temhr/Ansi.git > /home/temhr/AnsiLog.txt"
 
+
+- name: system setup | cron | Check if thrice logfile exists
+  ansible.builtin.stat:
+    path: /home/temhr/Ansi.txt
+  register: ansi_file
+
 - name: system setup | cron | auto ansible-pull log file
   tags: cron
   ansible.builtin.file:
@@ -25,6 +37,7 @@
     group: root
     mode: 0664
     state: touch
+  when: not ansi_file.stat.exists
 
 - name: system setup | cron | thrice daily update/upgrade
   tags: cron
