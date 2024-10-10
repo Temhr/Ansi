@@ -23,7 +23,6 @@
       - ncdu
       - neofetch
       - net-tools
-      - nfs-kernel-server
       - nmap
       - ranger
       - rsync
