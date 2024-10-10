@@ -2,7 +2,7 @@
   tags: groups,temhr,users
   ansible.builtin.group:
     name: temhr
-    state: present
+    state: absent
 
 - name: users | temhr | create temhr user
   tags: always
