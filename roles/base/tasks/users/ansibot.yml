@@ -4,8 +4,8 @@
   tags: always
   ansible.builtin.user:
     name: ansibot
-    state: present
     group: root
+    state: present
     
 - name: users | ansibot | add sudoers file
   tags: settings,ansibot,sudo,system,users
