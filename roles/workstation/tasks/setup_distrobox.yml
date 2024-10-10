@@ -1,12 +1,10 @@
 # setup distrobox support
 - name: mk directories for distrobox containers
   ansible.builtin.file:
-    path: /home/temhr/{{ item.dir }}
+    path: /home/temhr/containers
     state: directory
     owner: temhr
     group: root
-  with_items:
-    - { dir: containers }
 
 # setup distrobox support
 - name: mk temp directories for ansible
