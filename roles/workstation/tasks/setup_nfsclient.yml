@@ -3,20 +3,16 @@
     path: /etc/auto.nfs
   register: auto_file
 
-- name: nfs client | copy auto.master
+- name: nfs client | auto.master
   tags: nfs
-  ansible.builtin.copy:
-    src: files/nfs_auto.master
-    dest: /etc/auto.master
-    owner: root
-    group: root
-    mode: 0644
+  ansible.builtin.command: echo '/mnt/nfs /etc/auto.nfs --ghost --timeout=60' >> /etc/auto.master
+  become: yes
   when: not auto_file.stat.exists
 
 - name: nfs client | copy auto.nfs
   tags: nfs
   ansible.builtin.copy:
-    src: files/nfs_auto.master
+    src: files/nfs_auto.nfs
     dest: /etc/auto.nfs
     owner: root
     group: root
