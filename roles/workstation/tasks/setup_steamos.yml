@@ -9,6 +9,15 @@
     - { dir: containers }
     - { dir: containers/steamos }
 
+# set up distrobox support
+- name: mk temp directories for ansible
+  ansible.builtin.file:
+    path: /tmp/temhr/.ansible/tmp
+    state: directory
+    owner: temhr
+    group: root
+    mode: 760
+
 - name: steamos setup
   ansible.builtin.command: distrobox create --home /home/temhr/containers/steamos --name steamos --image ghcr.io/linuxserver/steamos:latest --hostname steamos --nvidia
   become: yes
