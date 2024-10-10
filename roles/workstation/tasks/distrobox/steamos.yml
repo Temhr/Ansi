@@ -1,0 +1,14 @@
+# set up steamos support
+- name: mk directory for steamos
+  ansible.builtin.file:
+    path: /home/temhr/{{ item.dir }}
+    state: directory
+    owner: temhr
+    group: root
+  with_items:
+    - { dir: containers/steamos }
+
+- name: steamos setup
+  ansible.builtin.command: distrobox create --home /home/temhr/containers/steamos --name steamos --image ghcr.io/linuxserver/steamos:latest --hostname steamos --nvidia
+  become: yes
+  become_user: temhr
