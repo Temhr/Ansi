@@ -1,4 +1,4 @@
-# set up flatpak support
+# set up distrobox support
 - name: mk directories for steam
   ansible.builtin.file:
     path: /home/temhr/{{ item.dir }}
