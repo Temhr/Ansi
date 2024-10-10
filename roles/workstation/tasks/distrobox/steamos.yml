@@ -6,12 +6,10 @@
 # set up steamos support
 - name: mk directory for steamos
   ansible.builtin.file:
-    path: /home/temhr/{{ item.dir }}
+    path: /home/temhr/containers/steamos
     state: directory
     owner: temhr
     group: root
-  with_items:
-    - { dir: containers/steamos }
   when: not init_file.stat.exists
   
 - name: steamos setup
