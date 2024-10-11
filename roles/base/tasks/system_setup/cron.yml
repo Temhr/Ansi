@@ -43,7 +43,7 @@
   ansible.builtin.cron:
     name: "ansible thrice daily"
     user: ansibot
-    hour: "*/8"
+    hour: "*/6"
     job: "ansible-playbook /usr/local/bin/thrice_daily_ansi.yml > /home/temhr/Ansi.txt"
 
 #- name: system setup | cron | schedule automatic ansible provisioning
