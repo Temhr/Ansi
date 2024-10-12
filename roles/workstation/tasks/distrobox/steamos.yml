@@ -1,4 +1,4 @@
-- name: verify if 1st run
+- name: verify if this is initial run
   ansible.builtin.stat:
     path: /home/temhr/containers/steamos/first
   register: init_file
@@ -18,7 +18,7 @@
   become_user: temhr
   when: not init_file.stat.exists
 
-- name: steamos setup | 1st run done
+- name: steamos setup | initial run done
   tags: steamos
   ansible.builtin.file:
     path: /home/temhr/containers/steamos/first
