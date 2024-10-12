@@ -1,4 +1,4 @@
-- name: Check if 1st run
+- name: verify if 1st run
   ansible.builtin.stat:
     path: /home/temhr/containers/steamos/first
   register: init_file
