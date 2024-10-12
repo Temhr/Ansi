@@ -1,13 +1,13 @@
 - block:
 
   # install software
-  - import_tasks: software/packages_utilities.yml
+  - ansible.builtin.import_tasks: software/packages_utilities.yml
   
   # install repository & software
-  - import_tasks: repositories/syncthing.yml
+  - ansible.builtin.import_tasks: repositories/syncthing.yml
   
   # install repository & software
-  - import_tasks: setup_nfsserver.yml
+  - ansible.builtin.import_tasks: setup_nfsserver.yml
 
   rescue:
     - set_fact: task_failed=true
