@@ -4,7 +4,6 @@
     state: absent
   with_items:
     - Music
-    - Pictures
     - Public
     - Templates
     - Videos
