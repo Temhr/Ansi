@@ -69,3 +69,9 @@
     user: ansibot
     special_time: reboot
     job: "/bin/rm -rf /home/ansibot/.ansible"
+
+- name: system setup | cron | reboot service
+  tags: cron,systemd_service,reboot
+  ansible.builtin.systemd_service:
+    name: cron
+    state: reloaded
