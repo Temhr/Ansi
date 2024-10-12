@@ -14,4 +14,4 @@
     state: directory
     owner: temhr
     group: root
-    mode: 760
+    mode: 0760
