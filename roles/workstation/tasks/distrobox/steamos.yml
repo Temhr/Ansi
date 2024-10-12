@@ -18,7 +18,7 @@
   become_user: temhr
   when: not init_file.stat.exists
 
-- name: steamos setup | initial run done
+- name: steamos setup | creating initial run flag
   tags: steamos
   ansible.builtin.file:
     path: /home/temhr/containers/steamos/first
