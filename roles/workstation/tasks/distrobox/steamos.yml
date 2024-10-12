@@ -10,6 +10,7 @@
     state: directory
     owner: temhr
     group: root
+    mode: 0770
   when: not init_file.stat.exists
   
 - name: steamos setup
