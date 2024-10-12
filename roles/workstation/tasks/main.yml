@@ -1,28 +1,28 @@
 - block:
 
   # setup home folder
-  - import_tasks: users/home_temhr.yml
+  - ansible.builtin.import_tasks: users/home_temhr.yml
   
   # install software
-  - import_tasks: software/packages_cleanup.yml
-  - import_tasks: software/packages_distro.yml
-  - import_tasks: software/packages_utilities.yml
+  - ansible.builtin.import_tasks: software/packages_cleanup.yml
+  - ansible.builtin.import_tasks: software/packages_distro.yml
+  - ansible.builtin.import_tasks: software/packages_utilities.yml
   
   # install repository & software
-  - import_tasks: repositories/brave_browser.yml
+  - ansible.builtin.import_tasks: repositories/brave_browser.yml
   
   # setup software environments
-  - import_tasks: setup_distrobox.yml
-  - import_tasks: setup_flatpak.yml
+  - ansible.builtin.import_tasks: setup_distrobox.yml
+  - ansible.builtin.import_tasks: setup_flatpak.yml
   
   # setup nfs share
-  - import_tasks: setup_nfsclient.yml
+  - ansible.builtin.import_tasks: setup_nfsclient.yml
 
   # install distrobox containers
-  - import_tasks: distrobox/steamos.yml
+  - ansible.builtin.import_tasks: distrobox/steamos.yml
   
   # install flatpaks
-  - import_tasks: flatpak/discord.yml
+  - ansible.builtin.import_tasks: flatpak/discord.yml
 
   rescue:
     - set_fact: task_failed=true
