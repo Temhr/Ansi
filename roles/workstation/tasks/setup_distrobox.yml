@@ -5,6 +5,7 @@
     state: directory
     owner: temhr
     group: root
+    mode: 0764
 
 # setup distrobox support
 - name: mk temp directories for ansible
