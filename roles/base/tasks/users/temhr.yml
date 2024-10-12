@@ -1,9 +1,3 @@
-- name: users | temhr | create group
-  tags: groups,temhr,users
-  ansible.builtin.group:
-    name: temhr
-    state: absent
-
 - name: users | temhr | create temhr user
   tags: always
   ansible.builtin.user:
