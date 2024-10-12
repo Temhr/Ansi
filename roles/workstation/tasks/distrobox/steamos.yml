@@ -13,7 +13,7 @@
   when: not init_file.stat.exists
   
 - name: steamos setup
-  ansible.builtin.command: distrobox create --home /home/temhr/containers/steamos --name steamos --image ghcr.io/linuxserver/steamos:latest --hostname steamos --nvidia -y
+  ansible.builtin.command: distrobox-create --home /home/temhr/containers/steamos --name steamos --image ghcr.io/linuxserver/steamos:latest --nvidia -y
   become: yes
   become_user: temhr
   when: not init_file.stat.exists
