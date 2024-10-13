@@ -21,7 +21,7 @@
     name: "ansible provision"
     user: ansibot
     minute: "*/17"
-    job: "/usr/bin/ansible-pull -o -U https://github.com/Temhr/Ansi.git > /home/temhr/AnsiLog.txt"
+    job: "sudo /usr/bin/ansible-pull -o -U https://github.com/Temhr/Ansi.git > /home/temhr/AnsiLog.txt"
 
 - name: system setup | cron | Check if quarter daily logfile exists
   ansible.builtin.stat:
@@ -44,7 +44,7 @@
     name: "ansible quarter daily"
     user: ansibot
     hour: "*/6"
-    job: "ansible-playbook /usr/local/bin/quarter_daily_ansi.yml > /home/temhr/Ansi.txt"
+    job: "sudo ansible-playbook /usr/local/bin/quarter_daily_ansi.yml > /home/temhr/Ansi.txt"
 
 #- name: system setup | cron | schedule automatic ansible provisioning
 #  tags: cron
