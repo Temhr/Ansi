@@ -48,15 +48,15 @@
 
 - name: Create two soft links
   ansible.builtin.file:
-    src: '/tmp/{{ item.src }}'
-    dest: '{{ item.dest }}'
+    src: '/home/temhr/{{ item.src }}'
+    dest: '/tmp/{{ item.dest }}'
     owner: temhr
     group: root
     mode: 0770
     state: link
   loop:
-    - { src: AnsiLog.txt, dest: /home/temhr/AnsiLog.txt }
-    - { src: Ansi.txt, dest: /home/temhr/Ansi.txt }
+    - { src: AnsiLog.txt, dest: AnsiLog.txt }
+    - { src: Ansi.txt, dest: Ansi.txt }
 
 #- name: system setup | cron | schedule automatic ansible provisioning
 #  tags: cron
