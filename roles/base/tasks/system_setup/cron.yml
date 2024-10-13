@@ -46,7 +46,7 @@
     hour: "*/6"
     job: "ansible-playbook /usr/local/bin/quarter_daily_ansi.yml > /tmp/Ansi.txt"
 
-- name: Create two hard links
+- name: Create two soft links
   ansible.builtin.file:
     src: '/tmp/{{ item.src }}'
     dest: '{{ item.dest }}'
