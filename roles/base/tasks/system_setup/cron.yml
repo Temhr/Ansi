@@ -23,7 +23,7 @@
     minute: "*/17"
     job: "/usr/bin/ansible-pull -o -U https://github.com/Temhr/Ansi.git > /home/temhr/AnsiLog.txt"
 
-- name: system setup | cron | Check if thrice logfile exists
+- name: system setup | cron | Check if quarter daily logfile exists
   ansible.builtin.stat:
     path: /home/temhr/Ansi.txt
   register: ansi_file
@@ -38,13 +38,13 @@
     state: touch
   when: not ansi_file.stat.exists
 
-- name: system setup | cron | thrice daily update/upgrade
+- name: system setup | cron | quarter daily update/upgrade
   tags: cron
   ansible.builtin.cron:
-    name: "ansible thrice daily"
+    name: "ansible quarter daily"
     user: ansibot
     hour: "*/6"
-    job: "ansible-playbook /usr/local/bin/thrice_daily_ansi.yml > /home/temhr/Ansi.txt"
+    job: "ansible-playbook /usr/local/bin/quarter_daily_ansi.yml > /home/temhr/Ansi.txt"
 
 #- name: system setup | cron | schedule automatic ansible provisioning
 #  tags: cron
