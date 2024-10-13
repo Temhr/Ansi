@@ -27,7 +27,7 @@
   tags: ansible-setup
   ansible.builtin.copy:
     src: files/ansible_setup/thrice_daily_ansi.yml
-    dest: /usr/local/bin/thrice_daily_ansi.yml
+    dest: /usr/local/bin/quarter_daily_ansi.yml
     owner: root
     group: root
     mode: 0755
