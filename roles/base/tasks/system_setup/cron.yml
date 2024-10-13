@@ -54,7 +54,7 @@
     group: root
     mode: 0770
     state: link
-  item:
+  with_items:
     - { src: AnsiLog.txt, dest: AnsiLog.txt }
     - { src: Ansi.txt, dest: Ansi.txt }
 
