@@ -2,13 +2,13 @@
 
 - name: system setup | cron | Check if ansible-pull logfile exists
   ansible.builtin.stat:
-    path: /home/temhr/AnsiLog.txt
+    path: /tmp/AnsiLog.txt
   register: ansilog_file
 
 - name: system setup | cron | auto ansible-pull logfile
   tags: cron
   ansible.builtin.file:
-    path: /home/temhr/AnsiLog.txt
+    path: /tmp/AnsiLog.txt
     owner: ansibot
     group: root
     mode: 0664
@@ -21,17 +21,17 @@
     name: "ansible provision"
     user: ansibot
     minute: "*/17"
-    job: "/usr/bin/ansible-pull -o -U https://github.com/Temhr/Ansi.git > /home/temhr/AnsiLog.txt"
+    job: "/usr/bin/ansible-pull -o -U https://github.com/Temhr/Ansi.git > /tmp/AnsiLog.txt"
 
 - name: system setup | cron | Check if quarter daily logfile exists
   ansible.builtin.stat:
-    path: /home/temhr/Ansi.txt
+    path: /tmp/Ansi.txt
   register: ansi_file
 
 - name: system setup | cron | auto ansible-pull log file
   tags: cron
   ansible.builtin.file:
-    path: /home/temhr/Ansi.txt
+    path: /tmp/Ansi.txt
     owner: ansibot
     group: root
     mode: 0664
@@ -44,7 +44,19 @@
     name: "ansible quarter daily"
     user: ansibot
     hour: "*/6"
-    job: "ansible-playbook /usr/local/bin/quarter_daily_ansi.yml > /home/temhr/Ansi.txt"
+    job: "ansible-playbook /usr/local/bin/quarter_daily_ansi.yml > /tmp/Ansi.txt"
+
+- name: Create two hard links
+  ansible.builtin.file:
+    src: '/tmp/{{ item.src }}'
+    dest: '{{ item.dest }}'
+    owner: temhr
+    group: root
+    mode: 0770
+    state: link
+  loop:
+    - { src: AnsiLog.txt, dest: /home/temhr/AnsiLog.txt }
+    - { src: Ansi.txt, dest: /home/temhr/Ansi.txt }
 
 #- name: system setup | cron | schedule automatic ansible provisioning
 #  tags: cron
