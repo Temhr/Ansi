@@ -23,7 +23,7 @@
     group: root
     mode: 0644
 
-- name: ansible setup | add thrice daily ansible cronjob playbook
+- name: ansible setup | add quarter daily ansible cronjob playbook
   tags: ansible-setup
   ansible.builtin.copy:
     src: files/ansible_setup/thrice_daily_ansi.yml
