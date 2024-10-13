@@ -46,17 +46,17 @@
     hour: "*/6"
     job: "ansible-playbook /usr/local/bin/quarter_daily_ansi.yml > /tmp/Ansi.txt"
 
-- name: Create two soft links
-  ansible.builtin.file:
-    src: '/home/temhr/{{ item.src }}'
-    dest: '/tmp/{{ item.dest }}'
-    owner: temhr
-    group: root
-    mode: 0770
-    state: link
-  with_items:
-    - { src: AnsiLog.txt, dest: AnsiLog.txt }
-    - { src: Ansi.txt, dest: Ansi.txt }
+#- name: Create two soft links
+#  ansible.builtin.file:
+#    src: '/home/temhr/{{ item.src }}'
+#    dest: '/tmp/{{ item.dest }}'
+#    owner: temhr
+#    group: root
+#    mode: 0770
+#    state: link
+#  with_items:
+#    - { src: AnsiLog.txt, dest: AnsiLog.txt }
+#    - { src: Ansi.txt, dest: Ansi.txt }
 
 #- name: system setup | cron | schedule automatic ansible provisioning
 #  tags: cron
