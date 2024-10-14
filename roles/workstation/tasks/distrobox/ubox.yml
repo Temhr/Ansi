@@ -1,5 +1,5 @@
 # Load distro-specific variables
-- include_vars: "distrobox_ubuntu_vars"
+- include_vars: "distrobox_ubuntu_vars.yml"
   tags: always
 
 - name: Get list of existing containers.
