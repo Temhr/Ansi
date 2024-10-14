@@ -30,8 +30,6 @@
             --name steamos
             --image ghcr.io/linuxserver/steamos:latest
             --home /home/temhr/containers/steamos
-            #--additional-packages "{{ distrobox_create_additional_packages }}"
-            #{{ distrobox_create_extra_args }}
       changed_when: false
 
     - name: Enter container to perform initial setup.
