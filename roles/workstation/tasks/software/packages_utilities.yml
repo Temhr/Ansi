@@ -3,6 +3,5 @@
   ansible.builtin.package:
     state: latest
     name:
-      - autofs
       - nfs-common
       - zsh
