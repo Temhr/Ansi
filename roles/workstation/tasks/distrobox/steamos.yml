@@ -34,5 +34,5 @@
 
     - name: Enter container to perform initial setup.
       ansible.builtin.command:
-        cmd: distrobox enter steamos -- sh -c exit
+        cmd: distrobox-enter steamos -- sh -c exit
       changed_when: true
