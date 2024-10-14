@@ -16,7 +16,7 @@
   - ansible.builtin.import_tasks: setup_flatpak.yml
   
   # setup nfs share
-  - ansible.builtin.import_tasks: setup_nfsclient.yml
+  - ansible.builtin.import_tasks: setup_autofs.yml
 
   # install distrobox containers
   - ansible.builtin.import_tasks: distrobox/steamos.yml
