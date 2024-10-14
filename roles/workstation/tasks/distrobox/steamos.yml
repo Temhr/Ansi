@@ -14,9 +14,9 @@
   ansible.builtin.file:
     path: /home/temhr/containers/steamos
     state: directory
-    mode: 0770
     owner: temhr
     group: root
+    mode: 0770
 
 - name: Ensure container has been created.
   become: true
