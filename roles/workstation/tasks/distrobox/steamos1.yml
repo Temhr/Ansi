@@ -1,0 +1,44 @@
+- name: Get list of existing containers.
+  become: true
+  become_user: "{{ distrobox_user }}"
+  ansible.builtin.shell:
+    cmd: |
+      set -o pipefail
+      distrobox list | awk '{print $3}' | grep '^{{ distrobox_create_name }}$'
+  register: distrobox_list
+  failed_when: false
+  changed_when: false
+
+- name: Ensure that container home directory exists.
+  become: true
+  ansible.builtin.file:
+    path: "{{ distrobox_create_home }}"
+    state: directory
+    mode: "0755"
+    owner: "{{ distrobox_user }}"
+    group: "{{ distrobox_user }}"
+
+- name: Ensure container has been created.
+  become: true
+  become_user: "{{ distrobox_user }}"
+  when: distrobox_list.stdout == ""
+  block:
+    - name: Include variables for image family.
+      ansible.builtin.include_vars: "vars/archlinux.yml"
+      when: distrobox_create_image_name == 'archlinux'
+
+    - name: Create a distrobox container.
+      ansible.builtin.command:
+        cmd: >
+          distrobox create --yes
+            --name {{ distrobox_create_name }}
+            --image {{ distrobox_create_image_name }}:{{ distrobox_create_image_tag }}
+            --home {{ distrobox_create_home }}
+            --additional-packages "{{ distrobox_create_additional_packages }}"
+            {{ distrobox_create_extra_args }}
+      changed_when: false
+
+    - name: Enter container to perform initial setup.
+      ansible.builtin.command:
+        cmd: distrobox enter {{ distrobox_create_name }} -- sh -c exit
+      changed_when: true
