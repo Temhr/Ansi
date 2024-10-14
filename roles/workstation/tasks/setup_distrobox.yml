@@ -9,26 +9,8 @@
 
 - name: Ensure podman is installed.
   become: true
-  ansible.builtin.apt:
-    name: podman
-    state: present
-
-- name: Check if Distrobox is present.
-  ansible.builtin.stat:
-    path: "~/.local/bin/distrobox"
-  register: distrobox_bin
-  changed_when: false
-
-- name: Install Distrobox.
-  when: not distrobox_bin.stat.exists
-  block:
-    - name: Download installation script.
-      ansible.builtin.get_url:
-        url: "https://raw.githubusercontent.com/89luca89/distrobox/main/install"
-        mode: "0744"
-        dest: "/tmp/install"
-
-    - name: Run installation script.
-      ansible.builtin.command:
-        cmd: "sh /tmp/install --prefix ~/.local"
-      changed_when: true
+  ansible.builtin.package:
+    state: latest
+    name:
+      - podman
+      - distrobox
