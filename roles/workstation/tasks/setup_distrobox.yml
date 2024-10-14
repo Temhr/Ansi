@@ -9,7 +9,6 @@
 
 - name: Ensure podman/distrobox is installed.
   become: true
-  become_user: temhr
   ansible.builtin.package:
     state: latest
     name:
