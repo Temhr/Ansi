@@ -32,7 +32,6 @@
     group: root
     mode: 0644
   when: not auto_file.stat.exists
-  notify: restart_autofs
 
 - name: system setup | autofs | copy auto.nfs config file
   tags: autofs,dotfiles,dotfiles-jay
@@ -43,4 +42,3 @@
     group: root
     mode: 0644
   when: not auto_file.stat.exists
-  notify: restart_autofs
