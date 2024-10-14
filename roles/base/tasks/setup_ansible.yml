@@ -4,6 +4,15 @@
     name: ansible
     state: latest
 
+# setup remote_tmp
+- name: mk directories for remote_tmp
+  ansible.builtin.file:
+    path: /tmp/temhr/.ansible/tmp
+    state: directory
+    owner: temhr
+    group: root
+    mode: 0770
+
 - name: ansible setup | create ansible log file
   tags: ansible,ansible-setup
   ansible.builtin.file:
