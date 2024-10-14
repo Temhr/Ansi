@@ -26,7 +26,7 @@
     - name: Create a distrobox container.
       ansible.builtin.command:
         cmd: >
-          distrobox create --yes
+          distrobox-create --yes
             --name steamos
             --image ghcr.io/linuxserver/steamos:latest
             --home /home/temhr/containers/steamos
