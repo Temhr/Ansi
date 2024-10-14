@@ -1,10 +1,14 @@
+# Load distro-specific variables
+- include_vars: "distrobox_steamos_vars.yml"
+  tags: always
+
 - name: Get list of existing containers.
   become: true
   become_user: temhr
   ansible.builtin.shell:
     cmd: |
       set -o pipefail
-      distrobox list | awk '{print $3}' | grep '^steamos$'
+      distrobox list | awk '{print $3}' | grep '^{{ distrobox_container_name }}$'
   register: distrobox_list
   failed_when: false
   changed_when: false
@@ -12,7 +16,7 @@
 - name: Ensure that container home directory exists.
   become: true
   ansible.builtin.file:
-    path: /home/temhr/containers/steamos
+    path: /home/temhr/containers/{{ distrobox_container_name }}
     state: directory
     owner: temhr
     group: root
@@ -27,12 +31,14 @@
       ansible.builtin.command:
         cmd: >
           distrobox-create --yes
-            --name steamos
-            --image ghcr.io/linuxserver/steamos:latest
-            --home /home/temhr/containers/steamos
+            --name {{ distrobox_container_name }}
+            --image {{ distrobox_image }}:latest
+            --home /home/temhr/containers/{{ distrobox_container_name }}
+            --additional-packages {{ distrobox_apps }}
+            --nvidia
       changed_when: false
 
     - name: Enter container to perform initial setup.
       ansible.builtin.command:
-        cmd: distrobox-enter steamos -- sh -c distrobox-export --app steam exit
+        cmd: distrobox-enter {{ distrobox_container_name }} -- sh -c {{ distrobox_export_apps }} exit
       changed_when: true
