@@ -1,2 +1,2 @@
 #[localhost folder] [filesystem type],rw [server ip]:[server folder's fullpath]
-#hdd-r0 -fstype=nfs4,rw 192.168.0.210:/hdd-r0/backup
+hdd-r0 -fstype=nfs4,rw 192.168.0.210:/hdd-r0/backup
