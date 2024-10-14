@@ -1,5 +1,5 @@
 ---
-distrobox_container_name: ubuntu
+distrobox_container_name: ubox1
 distrobox_image: ubuntu
 distrobox_apps: atop
 distrobox_export_apps: distrobox-export --app atop
