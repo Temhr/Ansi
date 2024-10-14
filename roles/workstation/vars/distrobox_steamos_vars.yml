@@ -1,0 +1,5 @@
+---
+distrobox_container_name: steamos
+distrobox_image: ghcr.io/linuxserver/steamos
+distrobox_apps: ""
+distrobox_export_apps: distrobox-export --app steam
