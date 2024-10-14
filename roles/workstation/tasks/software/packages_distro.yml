@@ -4,5 +4,4 @@
     state: latest
     name:
       - calibre
-      - firefox
       - keepassxc
