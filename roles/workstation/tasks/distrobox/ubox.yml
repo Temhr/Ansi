@@ -1,0 +1,38 @@
+- name: Get list of existing containers.
+  become: true
+  become_user: temhr
+  ansible.builtin.shell:
+    cmd: |
+      set -o pipefail
+      distrobox list | awk '{print $3}' | grep '^steamos$'
+  register: distrobox_list
+  failed_when: false
+  changed_when: false
+
+- name: Ensure that container home directory exists.
+  become: true
+  ansible.builtin.file:
+    path: /home/temhr/containers/steamos
+    state: directory
+    owner: temhr
+    group: root
+    mode: 0770
+
+- name: Ensure container has been created.
+  become: true
+  become_user: temhr
+  when: distrobox_list.stdout == ""
+  block:
+    - name: Create a distrobox container.
+      ansible.builtin.command:
+        cmd: >
+          distrobox-create --yes
+            --name steamos
+            --image ghcr.io/linuxserver/steamos:latest
+            --home /home/temhr/containers/steamos
+      changed_when: false
+
+    - name: Enter container to perform initial setup.
+      ansible.builtin.command:
+        cmd: distrobox-enter steamos -- sh -c distrobox-export --app steam exit
+      changed_when: true
