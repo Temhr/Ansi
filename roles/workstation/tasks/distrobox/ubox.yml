@@ -40,5 +40,5 @@
 
     - name: Enter container to perform initial setup.
       ansible.builtin.command:
-        cmd: distrobox-enter {{ distrobox_container_name }} -- sh -c distrobox-export --app atop exit
+        cmd: distrobox-enter {{ distrobox_container_name }} -- sh -c exit
       changed_when: true
