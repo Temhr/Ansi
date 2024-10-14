@@ -4,8 +4,5 @@
     state: latest
     name:
       - calibre
-      - distrobox
       - firefox
       - keepassxc
-      - kio-gdrive
-      - podman
