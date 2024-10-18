@@ -31,6 +31,6 @@
 - name: Install Firefox
   become: true
   ansible.builtin.apt:
-    update_cache: true
     name: firefox
-    state: present
+    state: latest
+    update_cache: true
