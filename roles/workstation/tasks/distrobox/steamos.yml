@@ -34,7 +34,6 @@
             --name {{ distrobox_container_name }}
             --image {{ distrobox_image }}:latest
             --home /home/temhr/containers/{{ distrobox_container_name }}
-            --additional-packages {{ distrobox_apps }}
             --nvidia
       changed_when: false
 
