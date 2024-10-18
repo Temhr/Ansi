@@ -28,7 +28,7 @@
   ansible.builtin.copy:
     dest: /etc/apt/sources.list.d/mozilla.list
     content: |
-      echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main"
+      "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main"
     mode: 0755
   when: not keyring_file.stat.exists
 
