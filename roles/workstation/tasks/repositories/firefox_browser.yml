@@ -28,13 +28,9 @@
     cmd: echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
   when: not keyring_file.stat.exists
 
-- name: Apt update
-  become: true
-  ansible.builtin.apt:
-    update_cache: true
-
 - name: Install Firefox
   become: true
   ansible.builtin.apt:
+    update_cache: true
     name: firefox
     state: latest
