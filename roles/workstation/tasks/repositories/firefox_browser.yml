@@ -2,28 +2,38 @@
 
 - name: Check if keyring exists
   ansible.builtin.stat:
-    path: /usr/share/keyrings/brave-browser-archive-keyring.gpg
+    path: /etc/apt/keyrings/packages.mozilla.org.asc
   register: keyring_file
 
+- name: Ensure that directory to store APT repository keys exists.
+  become: true
+  ansible.builtin.file:
+    path: /etc/apt/keyrings
+    state: directory
+    owner: root
+    group: root
+    mode: 0775
+  when: not keyring_file.stat.exists
+
 - name: Get keyring file
+  become: true
   ansible.builtin.get_url:
     url: https://packages.mozilla.org/apt/repo-signing-key.gpg
-    dest: "/etc/apt/keyrings/packages.mozilla.org.asc"
-    mode: "0755"
+    dest: /etc/apt/keyrings/packages.mozilla.org.asc
+    mode: 0755
   when: not keyring_file.stat.exists
-  become: true
 
-- name: Add Brave repository to list of repositories
+- name: Add Firefox repository to list of repositories
   become: true
   ansible.builtin.copy:
     dest: /etc/apt/sources.list.d/mozilla.list
     content: |
       echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main"
-    mode: "0755"
+    mode: 0755
 
 - name: Install Firefox
+  become: true
   ansible.builtin.apt:
     name: firefox
     state: latest
     update_cache: true
-  become: true
