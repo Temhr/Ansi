@@ -1,3 +1,8 @@
+- name: system setup | autofs | Check if 1st run
+  ansible.builtin.stat:
+    path: /etc/auto.nfs
+  register: auto_file
+
 - name: system setup | autofs | install package
   tags: autofs
   ansible.builtin.package:
@@ -11,11 +16,6 @@
     name: autofs
     state: started
     enabled: true
-
-- name: system setup | autofs | Check if 1st run
-  ansible.builtin.stat:
-    path: /etc/auto.nfs
-  register: auto_file
 
 - name: system setup | autofs | save auto.master file
   tags: nfs
