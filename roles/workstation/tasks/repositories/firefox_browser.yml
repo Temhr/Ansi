@@ -33,4 +33,4 @@
   ansible.builtin.apt:
     update_cache: true
     name: firefox
-    state: latest
+    state: present
