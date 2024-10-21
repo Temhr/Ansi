@@ -1,0 +1,5 @@
+- name: flatpak | kdenlive | install package
+  tags: packages,kdenlive,flatpak,workstation-packages
+  community.general.flatpak:
+    name: org.kde.kdenlive
+    state: latest
