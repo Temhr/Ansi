@@ -25,6 +25,7 @@
   
   # install flatpaks
   - ansible.builtin.import_tasks: flatpak/discord.yml
+  - ansible.builtin.import_tasks: flatpak/kdenlive.yml
 
   rescue:
     - set_fact: task_failed=true
