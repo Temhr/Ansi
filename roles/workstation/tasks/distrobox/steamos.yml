@@ -34,7 +34,6 @@
             --name {{ distrobox_container_name }}
             --image {{ distrobox_image }}:latest
             --home /home/temhr/containers/{{ distrobox_container_name }}
-            --nvidia
       changed_when: false
 
     - name: Enter container to perform initial setup.
