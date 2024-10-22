@@ -29,11 +29,7 @@
   block:
     - name: Create a distrobox container.
       ansible.builtin.command:
-        cmd: >
-          distrobox-create --yes
-            --name {{ distrobox_container_name }}
-            --image {{ distrobox_image }}:latest
-            --home /home/temhr/containers/{{ distrobox_container_name }}
+        cmd: distrobox-create --yes --home /home/temhr/containers/{{ distrobox_container_name }} --name {{ distrobox_container_name }} --image {{ distrobox_image }}:latest --nvidia
       changed_when: false
 
     - name: Enter container to perform initial setup.
@@ -41,7 +37,7 @@
         cmd: distrobox-enter {{ distrobox_container_name }} -- sh -c exit
       changed_when: true
 
-    - name: Enter container to export steam.
+    - name: Enter container to export app.
       ansible.builtin.command:
         cmd: distrobox-enter {{ distrobox_container_name }} -- {{distrobox_export_apps}} exit
       changed_when: true
