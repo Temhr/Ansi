@@ -56,27 +56,6 @@
     hour: 0
     job: "rm /tmp/Ansi.txt /tmp/AnsiLog.txt"
 
-#- name: Create two soft links
-#  ansible.builtin.file:
-#    src: '/home/temhr/{{ item.src }}'
-#    dest: '/tmp/{{ item.dest }}'
-#    owner: temhr
-#    group: root
-#    mode: 0770
-#    state: link
-#  with_items:
-#    - { src: AnsiLog.txt, dest: AnsiLog.txt }
-#    - { src: Ansi.txt, dest: Ansi.txt }
-
-#- name: system setup | cron | schedule automatic ansible provisioning
-#  tags: cron
-#  ansible.builtin.cron:
-#    name: "ansible provision"
-#    user: ansibot
-#    hour: "{{ ansible_cron_hour | default('*') }}"
-#    minute: "{{ ansible_cron_minute | default('*/5') }}"
-#    job: "/usr/local/bin/provision > /home/AnsiLog.txt"
-
 - name: system setup | cron | start service on boot
   tags: cron,systemd_service,boot
   ansible.builtin.systemd_service:
