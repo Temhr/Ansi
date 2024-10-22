@@ -35,7 +35,7 @@
 - name: ansible setup | add quarter daily ansible cronjob playbook
   tags: ansible-setup
   ansible.builtin.copy:
-    src: files/ansible_setup/thrice_daily_ansi.yml
+    src: files/ansible_setup/quarter_daily_ansi.yml
     dest: /usr/local/bin/quarter_daily_ansi.yml
     owner: root
     group: root
