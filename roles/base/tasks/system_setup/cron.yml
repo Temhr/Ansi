@@ -51,7 +51,9 @@
   ansible.builtin.cron:
     name: "ansible weekly delete"
     user: ansibot
-    weekday: "*/1"
+    weekday: 2
+    minute: 0
+    hour: 0
     job: "rm /tmp/Ansi.txt /tmp/AnsiLog.txt"
 
 #- name: Create two soft links
