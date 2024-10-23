@@ -2,6 +2,7 @@
 
   # setup home folder
   - ansible.builtin.import_tasks: users/home_temhr.yml
+  - ansible.builtin.import_tasks: system_setup/KDE_plasma.yml
   
   # install software
   - ansible.builtin.import_tasks: software/packages_cleanup.yml
