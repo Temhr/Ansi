@@ -1,0 +1,8 @@
+---
+
+- name: system setup | KDE plasma | Plasma 5 Wayland package
+  tags: packages,system,settings,kde,plasma,wayland
+  ansible.builtin.package:
+    state: latest
+    name:
+      - plasma-workspace-wayland
