@@ -20,7 +20,7 @@
   ansible.builtin.cron:
     name: "ansible provision"
     user: ansibot
-    minute: */17
+    minute: "*/17"
     job: "/usr/bin/ansible-pull -o -U https://github.com/Temhr/Ansi.git >> /tmp/AnsiLog.txt"
 
 - name: system setup | cron | Check if quarter daily logfile exists
@@ -43,7 +43,7 @@
   ansible.builtin.cron:
     name: "ansible quarter daily"
     user: ansibot
-    hour: */6
+    hour: "*/6"
     minute: 0
     job: "ansible-playbook /usr/local/bin/quarter_daily_ansi.yml >> /tmp/Ansi.txt"
 
