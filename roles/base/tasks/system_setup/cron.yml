@@ -45,7 +45,7 @@
     user: ansibot
     hour: "*/6"
     minute: 0
-    job: "date >> /tmp/Ansi.txt && sudo nala update >> /tmp/Ansi.txt && sudo apt upgrade -y >> /tmp/Ansi.txt && sudo apt autoremove -y >> /tmp/Ansi.txt"
+    job: "date >> /tmp/Ansi.txt && sudo nala update >> /tmp/Ansi.txt && sudo apt upgrade -y >> /tmp/Ansi.txt && sudo apt autoremove"
 
 - name: system setup | cron | weekly delete
   tags: cron
