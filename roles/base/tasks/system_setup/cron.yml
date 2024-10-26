@@ -47,16 +47,6 @@
     minute: 0
     job: "date >> /tmp/Ansi.txt && sudo nala update && sudo apt upgrade -y >> /tmp/Ansi.txt && sudo apt autoremove -y >> /tmp/Ansi.txt"
 
-- name: system setup | cron | weekly delete
-  tags: cron
-  ansible.builtin.cron:
-    name: "ansible weekly delete"
-    user: ansibot
-    weekday: 2
-    hour: 0
-    minute: 0
-    job: "rm /tmp/Ansi.txt /tmp/AnsiLog.txt"
-
 - name: system setup | cron | start service on boot
   tags: cron,systemd_service,boot
   ansible.builtin.systemd_service:
