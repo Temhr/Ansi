@@ -5,6 +5,15 @@
     group: root
     state: present
 
+- name: users | temhr | Home directory
+  tags: temhr,users
+  ansible.builtin.file:
+    path: /home/temhr
+    state: directory
+    owner: temhr
+    group: root
+    mode: 0770
+
 - name: users | temhr | temhr | add sudoers file
   tags: temhr,settings,ansibot,sudo,system,users
   ansible.builtin.copy:
@@ -21,7 +30,7 @@
     state: directory
     owner: temhr
     group: root
-    mode: 0700
+    mode: 0770
   with_items:
     - { dir: '.bash' }
     - { dir: '.config' }
@@ -35,7 +44,7 @@
     dest: /home/temhr/{{ item.dest }}
     owner: temhr
     group: root
-    mode: 0600
+    mode: 0660
   with_items:
     - { src: 'inputrc', dest: '.inputrc' }
     - { src: 'bash/bash_aliases', dest: '.bash/bash_aliases' }
