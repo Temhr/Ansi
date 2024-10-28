@@ -30,14 +30,6 @@
     state: touch
   when: not ansilog_file.stat.exists
 
-- name: system setup | cron | Ansible autopull setup
-  tags: cron
-  ansible.builtin.cron:
-    name: "ansible provision"
-    user: ansibot
-    minute: "*/17"
-    job: "/usr/bin/ansible-pull -o -U https://github.com/Temhr/Ansi.git >> /home/temhr/AnsiLog.txt"
-
 - name: system setup | cron | Quarter-daily nala update / apt upgrade
   tags: cron
   ansible.builtin.cron:
@@ -46,6 +38,14 @@
     hour: "*/6"
     minute: 0
     job: "date >> /home/temhr/Ansi.txt && sudo nala update >> /home/temhr/Ansi.txt && sudo apt upgrade -y >> /home/temhr/Ansi.txt && sudo apt autoremove -y >> /home/temhr/Ansi.txt"
+
+- name: system setup | cron | Ansible autopull setup
+  tags: cron
+  ansible.builtin.cron:
+    name: "ansible provision"
+    user: ansibot
+    minute: "*/17"
+    job: "/usr/bin/ansible-pull -o -U https://github.com/Temhr/Ansi.git >> /home/temhr/AnsiLog.txt"
 
 - name: system setup | cron | Weekly Tuesday log store/delete
   tags: cron
