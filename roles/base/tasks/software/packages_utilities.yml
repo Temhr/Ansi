@@ -48,4 +48,4 @@
     state: latest
     name:
       - fastfetch
-  when: ansible_distribution != "Debian"
+  when: ansible_distribution == "siduction"
