@@ -15,3 +15,12 @@
     owner: root
     group: root
     mode: 0440
+
+- name: users | ansibot | Home directory
+  tags: ansibot,users
+  ansible.builtin.file:
+    path: /home/ansibot
+    state: directory
+    owner: ansibot
+    group: root
+    mode: 0770
