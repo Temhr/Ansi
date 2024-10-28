@@ -20,7 +20,6 @@
       - mosh
       - nala
       - ncdu
-      - fastfetch
       - net-tools
       - nmap
       - ranger
@@ -34,3 +33,19 @@
       - vim-nox
       - wget
       - whois
+
+- name: system setup | utilities | install utility packages
+  tags: packages,system,settings
+  ansible.builtin.package:
+    state: latest
+    name:
+      - neofetch
+  when: ansible_distribution == "Debian"
+  
+- name: system setup | utilities | install utility packages
+  tags: packages,system,settings
+  ansible.builtin.package:
+    state: latest
+    name:
+      - fastfetch
+  when: ansible_distribution != "Debian"
