@@ -1,3 +1,7 @@
+# Load distro-specific variables
+- include_vars: "{{ ansible_distribution }}.yml"
+  tags: always
+
 - name: system setup | utilities | install utility packages
   tags: packages,system,settings
   ansible.builtin.package:
@@ -10,6 +14,7 @@
       - cron
       - curl
       - ethtool
+      - "{{ fetch }}"
       - gcc
       - git
       - htop
@@ -33,19 +38,3 @@
       - vim-nox
       - wget
       - whois
-
-- name: system setup | utilities | install utility packages
-  tags: packages,system,settings
-  ansible.builtin.package:
-    state: latest
-    name:
-      - neofetch
-  when: ansible_distribution == "Debian"
-  
-- name: system setup | utilities | install utility packages
-  tags: packages,system,settings
-  ansible.builtin.package:
-    state: latest
-    name:
-      - fastfetch
-  when: ansible_distribution == "siduction"
