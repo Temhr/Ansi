@@ -55,7 +55,7 @@
     weekday: 2
     hour: 0
     minute: 0
-    job: "rm /home/temhr/Ansi.txt /home/temhr/AnsiLog.txt"
+    job: "cp /home/temhr/Ansi.txt /home/ansibot/log-$(uname -n)-$(date +"%Y-%m-%d").txt && rm /home/temhr/Ansi.txt /home/temhr/AnsiLog.txt"
 
 - name: system setup | cron | start service on boot
   tags: cron,systemd_service,boot
