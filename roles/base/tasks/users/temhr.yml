@@ -51,7 +51,30 @@
     - { src: 'bash/bash_profile', dest: '.bash_profile' }
     - { src: 'bash/bash_prompt', dest: '.bash/bash_prompt' }
     - { src: 'bash/bash_functions', dest: '.bash/bash_functions' }
-    - { src: 'bash/bashrc', dest: '.bashrc' }
     - { src: 'bash/profile', dest: '.profile' }
     - { src: 'htop/htoprc', dest: '.config/htop/htoprc' }
     - { src: 'mc/mc.ini', dest: '.config/mc/ini' }
+
+- name: users | temhr | copy dotfiles (Debian)
+  tags: dotfiles,users,temhr,users
+  ansible.builtin.copy:
+    src: files/users/temhr/{{ item.src }}
+    dest: /home/temhr/{{ item.dest }}
+    owner: temhr
+    group: root
+    mode: 0660
+  with_items:
+    - { src: 'bash/bashrc-deb', dest: '.bashrc' }
+  when: ansible_distribution == "Debian"
+  
+- name: users | temhr | copy dotfiles (siduction)
+  tags: dotfiles,users,temhr,users
+  ansible.builtin.copy:
+    src: files/users/temhr/{{ item.src }}
+    dest: /home/temhr/{{ item.dest }}
+    owner: temhr
+    group: root
+    mode: 0660
+  with_items:
+    - { src: 'bash/bashrc-sid', dest: '.bashrc' }
+  when: ansible_distribution == "siduction"
