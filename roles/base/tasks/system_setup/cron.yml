@@ -47,7 +47,7 @@
     minute: 0
     job: "date >> /home/temhr/Ansi.txt && sudo nala update >> /home/temhr/Ansi.txt && sudo apt upgrade -y >> /home/temhr/Ansi.txt && sudo apt autoremove -y >> /home/temhr/Ansi.txt"
 
-- name: system setup | cron | Weekly Tuesday log delete/store
+- name: system setup | cron | Weekly Tuesday log store/delete
   tags: cron
   ansible.builtin.cron:
     name: "ansible weekly delete"
