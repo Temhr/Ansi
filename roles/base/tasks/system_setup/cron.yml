@@ -1,20 +1,5 @@
 ---
 
-- name: system setup | cron | Check if AnsiLog.txt exists
-  ansible.builtin.stat:
-    path: /home/temhr/AnsiLog.txt
-  register: ansilog_file
-
-- name: system setup | cron | Touch AnsiLog.txt
-  tags: cron
-  ansible.builtin.file:
-    path: /home/temhr/AnsiLog.txt
-    owner: ansibot
-    group: root
-    mode: 0664
-    state: touch
-  when: not ansilog_file.stat.exists
-
 - name: system setup | cron | Check if Ansi.txt exists
   ansible.builtin.stat:
     path: /home/temhr/Ansi.txt
@@ -29,6 +14,21 @@
     mode: 0664
     state: touch
   when: not ansi_file.stat.exists
+
+- name: system setup | cron | Check if AnsiLog.txt exists
+  ansible.builtin.stat:
+    path: /home/temhr/AnsiLog.txt
+  register: ansilog_file
+
+- name: system setup | cron | Touch AnsiLog.txt
+  tags: cron
+  ansible.builtin.file:
+    path: /home/temhr/AnsiLog.txt
+    owner: ansibot
+    group: root
+    mode: 0664
+    state: touch
+  when: not ansilog_file.stat.exists
 
 - name: system setup | cron | Ansible autopull setup
   tags: cron
