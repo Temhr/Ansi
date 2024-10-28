@@ -1,53 +1,53 @@
 ---
 
-- name: system setup | cron | Check if ansible-pull logfile exists
+- name: system setup | cron | Check if AnsiLog.txt exists
   ansible.builtin.stat:
-    path: /tmp/AnsiLog.txt
+    path: /home/temhr/AnsiLog.txt
   register: ansilog_file
 
-- name: system setup | cron | auto ansible-pull logfile
+- name: system setup | cron | Touch AnsiLog.txt
   tags: cron
   ansible.builtin.file:
-    path: /tmp/AnsiLog.txt
+    path: /home/temhr/AnsiLog.txt
     owner: ansibot
     group: root
     mode: 0664
     state: touch
   when: not ansilog_file.stat.exists
 
-- name: system setup | cron | auto ansible-pull setup
+- name: system setup | cron | ansible auto-check
   tags: cron
   ansible.builtin.cron:
     name: "ansible provision"
     user: ansibot
     minute: "*/17"
-    job: "/usr/bin/ansible-pull -o -U https://github.com/Temhr/Ansi.git >> /tmp/AnsiLog.txt"
+    job: "/usr/bin/ansible-pull -o -U https://github.com/Temhr/Ansi.git >> /home/AnsiLog.txt"
 
-- name: system setup | cron | Check if quarter daily logfile exists
+- name: system setup | cron | Check if Ansi.txt exists
   ansible.builtin.stat:
-    path: /tmp/Ansi.txt
+    path: /home/temhr/Ansi.txt
   register: ansi_file
 
-- name: system setup | cron | auto ansible-pull log file
+- name: system setup | cron | Touch Ansi.txt
   tags: cron
   ansible.builtin.file:
-    path: /tmp/Ansi.txt
+    path: /home/temhr/Ansi.txt
     owner: ansibot
     group: root
     mode: 0664
     state: touch
   when: not ansi_file.stat.exists
 
-- name: system setup | cron | quarter daily update/upgrade
+- name: system setup | cron | Quarter-daily nala update / apt upgrade
   tags: cron
   ansible.builtin.cron:
     name: "ansible quarter daily"
     user: ansibot
     hour: "*/6"
     minute: 0
-    job: "date >> /tmp/Ansi.txt && sudo nala update >> /tmp/Ansi.txt && sudo apt upgrade -y >> /tmp/Ansi.txt && sudo apt autoremove >> /tmp/Ansi.txt"
+    job: "date >> /home/temhr/Ansi.txt && sudo nala update >> /home/temhr/Ansi.txt && sudo apt upgrade -y >> /home/temhr/Ansi.txt && sudo apt autoremove >> /home/temhr/Ansi.txt"
 
-- name: system setup | cron | weekly delete
+- name: system setup | cron | Tuesday log deletes
   tags: cron
   ansible.builtin.cron:
     name: "ansible weekly delete"
@@ -55,7 +55,7 @@
     weekday: 2
     hour: 0
     minute: 0
-    job: "rm /tmp/Ansi.txt /tmp/AnsiLog.txt"
+    job: "rm /home/temhr/Ansi.txt /home/temhr/AnsiLog.txt"
 
 - name: system setup | cron | start service on boot
   tags: cron,systemd_service,boot
