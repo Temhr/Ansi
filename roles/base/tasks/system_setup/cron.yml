@@ -15,7 +15,7 @@
     state: touch
   when: not ansilog_file.stat.exists
 
-- name: system setup | cron | ansible auto-check
+- name: system setup | cron | Ansible autopull setup
   tags: cron
   ansible.builtin.cron:
     name: "ansible provision"
@@ -47,7 +47,7 @@
     minute: 0
     job: "date >> /home/temhr/Ansi.txt && sudo nala update >> /home/temhr/Ansi.txt && sudo apt upgrade -y >> /home/temhr/Ansi.txt && sudo apt autoremove >> /home/temhr/Ansi.txt"
 
-- name: system setup | cron | Tuesday log deletes
+- name: system setup | cron | Weekly Tuesday log deletes
   tags: cron
   ansible.builtin.cron:
     name: "ansible weekly delete"
