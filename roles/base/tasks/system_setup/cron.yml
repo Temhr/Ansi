@@ -45,7 +45,7 @@
     user: ansibot
     hour: "*/6"
     minute: 0
-    job: "date >> /home/temhr/Ansi.txt && sudo nala update >> /home/temhr/Ansi.txt && sudo apt upgrade -y >> /home/temhr/Ansi.txt && sudo apt autoremove >> /home/temhr/Ansi.txt"
+    job: "date >> /home/temhr/Ansi.txt && sudo nala update >> /home/temhr/Ansi.txt && sudo apt upgrade -y >> /home/temhr/Ansi.txt && sudo apt autoremove -y >> /home/temhr/Ansi.txt"
 
 - name: system setup | cron | Weekly Tuesday log deletes
   tags: cron
