@@ -15,6 +15,7 @@
   - ansible.builtin.import_tasks: system_setup/clock.yml
   - ansible.builtin.import_tasks: system_setup/cron.yml
   - ansible.builtin.import_tasks: system_setup/logging.yml
+  - ansible.builtin.import_tasks: system_setup/repositories.yml
 
   rescue:
     - set_fact: task_failed=true
