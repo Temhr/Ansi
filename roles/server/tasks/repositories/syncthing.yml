@@ -1,16 +1,17 @@
 ---
 
-- name: Add an Apt signing key to a specific keyring file
-  ansible.builtin.apt_key:
+- name: Add APT signing key to a specific keyring file
+  ansible.builtin.get_url:
     url: https://syncthing.net/release-key.gpg
-    keyring: /etc/apt/keyrings/syncthing-archive-keyring.gpg
+    dest: /etc/apt/keyrings/syncthing-archive-keyring.gpg
 
-- name: somerepo | apt source
-  ansible.builtin.apt_repository:
-    repo: "deb [signed-by=/etc/apt/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable"
-    state: present
-    update_cache: true
-    
+- name: Add syncthing channel to APT sources list of repositories
+  become: true
+  ansible.builtin.copy:
+    dest: /etc/apt/sources.list.d/syncthing.list
+    content: |
+      "deb [signed-by=/etc/apt/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable"
+
 - name: Install Syncthing
   become: true
   ansible.builtin.apt:
