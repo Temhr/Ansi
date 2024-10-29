@@ -10,7 +10,7 @@
   ansible.builtin.copy:
     dest: /etc/apt/sources.list.d/syncthing.list
     content: |
-      "deb [signed-by=/etc/apt/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable"
+      deb [signed-by=/etc/apt/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable
 
 - name: Install Syncthing
   become: true
