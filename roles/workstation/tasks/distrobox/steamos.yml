@@ -3,7 +3,7 @@
   tags: always
 
 - name: Get list of existing containers.
-  become: true
+  become: false
   become_user: temhr
   ansible.builtin.shell:
     cmd: |
