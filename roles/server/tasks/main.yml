@@ -4,7 +4,7 @@
   - ansible.builtin.import_tasks: software/packages_utilities.yml
   
   # install repository & software
-  - ansible.builtin.import_tasks: repositories/syncthing.yml
+  #- ansible.builtin.import_tasks: repositories/syncthing.yml
   
   # install repository & software
   - ansible.builtin.import_tasks: setup_nfsserver.yml
