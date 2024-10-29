@@ -23,8 +23,8 @@
   - ansible.builtin.import_tasks: setup_autofs.yml
 
   # install distrobox containers
-  - ansible.builtin.import_tasks: distrobox/steamos.yml
-  - ansible.builtin.import_tasks: distrobox/ubox.yml
+  #- ansible.builtin.import_tasks: distrobox/steamos.yml
+  #- ansible.builtin.import_tasks: distrobox/ubox.yml
   
   # install flatpaks
   - ansible.builtin.import_tasks: flatpak/discord.yml
