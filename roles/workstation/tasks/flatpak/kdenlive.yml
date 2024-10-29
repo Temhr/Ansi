@@ -2,4 +2,4 @@
   tags: packages,kdenlive,flatpak,workstation-packages
   community.general.flatpak:
     name: org.kde.kdenlive
-    state: latest
+    state: present
