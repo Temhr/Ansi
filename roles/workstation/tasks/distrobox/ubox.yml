@@ -29,7 +29,7 @@
   block:
     - name: Create a distrobox container.
       ansible.builtin.command:
-        cmd: distrobox-create --yes --home /home/temhr/containers/{{ distrobox_container_name }} --name {{ distrobox_container_name }} --image {{ distrobox_image }}:latest --nvidia
+        cmd: distrobox-create --yes --home /home/temhr/containers/{{ distrobox_container_name }} --name {{ distrobox_container_name }} --image {{ distrobox_image }}:latest --additional-packages "steam" --nvidia
       changed_when: false
 
     - name: Enter container to perform initial setup.
