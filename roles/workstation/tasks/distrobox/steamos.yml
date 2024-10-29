@@ -23,7 +23,7 @@
     mode: 0770
 
 - name: Ensure container has been created.
-  become: true
+  become: false
   become_user: temhr
   when: distrobox_list.stdout == ""
   block:
