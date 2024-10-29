@@ -1,9 +1,9 @@
 ---
 
-- name: somerepo | no apt key
-  ansible.builtin.get_url:
+- name: Add an Apt signing key to a specific keyring file
+  ansible.builtin.apt_key:
     url: https://syncthing.net/release-key.gpg
-    dest: /etc/apt/keyrings/syncthing-archive-keyring.gpg
+    keyring: /etc/apt/keyrings/syncthing-archive-keyring.gpg
 
 - name: somerepo | apt source
   ansible.builtin.apt_repository:
