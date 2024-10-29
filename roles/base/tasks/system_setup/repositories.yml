@@ -1,0 +1,8 @@
+# setup apt repository 
+- name: Create directory for keyrings
+  ansible.builtin.file:
+    path: /etc/apt/keyrings
+    state: directory
+    owner: root
+    group: root
+    mode: 0774
