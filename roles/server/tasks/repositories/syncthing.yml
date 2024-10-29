@@ -6,12 +6,12 @@
   register: keyring_file
 
 - name: Get keyring file
+  become: true
   ansible.builtin.get_url:
     url: https://syncthing.net/release-key.gpg
-    dest: "/etc/apt/keyrings/syncthing-archive-keyring.gpg"
-    mode: "0644"
+    dest: /etc/apt/keyrings/syncthing-archive-keyring.gpg
+    mode: 0644
   when: not keyring_file.stat.exists
-  become: true
 
 - name: Add Syncthing stable channel repository to list of repositories
   become: true
@@ -19,11 +19,11 @@
     dest: /etc/apt/sources.list.d/syncthing.list
     content: |
       deb [signed-by=/etc/apt/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable
-    mode: "0644"
+    mode: 0644
 
 - name: Install Syncthing
+  become: true
   ansible.builtin.apt:
     name: syncthing
     state: latest
     update_cache: true
-  become: true
