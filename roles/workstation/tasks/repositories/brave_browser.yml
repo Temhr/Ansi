@@ -1,5 +1,14 @@
 ---
 
+- name: Ensure that directory to store APT repository keys exists.
+  become: true
+  ansible.builtin.file:
+    path: /etc/apt/keyrings
+    state: directory
+    owner: root
+    group: root
+    mode: 0775
+
 - name: Adding Brave browser keyring
   ansible.builtin.apt_key:
     url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
