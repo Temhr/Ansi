@@ -9,9 +9,10 @@
   ansible.builtin.apt_repository:
     repo: "deb http://dl.google.com/linux/chrome/deb/ stable main"
     state: present
-    filename: chrome-stable
     update_cache: true
 
 - name: Installing Google Chrome browser
   ansible.builtin.apt:
     name: google-chrome-stable
+    state: latest
+    update_cache: true
