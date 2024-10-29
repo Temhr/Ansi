@@ -9,9 +9,10 @@
   ansible.builtin.apt_repository:
     repo: "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main"
     state: present
-    filename: microsoft-edge
     update_cache: true
 
 - name: Installing Microsoft Edge browser
   ansible.builtin.apt:
     name: microsoft-edge-stable
+    state: latest
+    update_cache: true
