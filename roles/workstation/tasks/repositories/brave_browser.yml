@@ -3,7 +3,7 @@
 - name: Ensure that directory to store APT repository keys exists.
   become: true
   ansible.builtin.file:
-    path: /etc/apt/keyrings
+    path: /usr/share/keyrings
     state: directory
     owner: root
     group: root
