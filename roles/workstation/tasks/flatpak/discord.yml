@@ -2,4 +2,4 @@
   tags: packages,discord,flatpak,workstation-packages
   community.general.flatpak:
     name: com.discordapp.Discord
-    state: latest
+    state: present
