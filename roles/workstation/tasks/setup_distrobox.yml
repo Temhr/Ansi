@@ -3,7 +3,7 @@
   tags: distrobox,copy,temhr,steam
   ansible.builtin.copy:
     src: files/distrobox_steamos.ini
-    dest: /home/temhr/distrobox_steamos.init
+    dest: /home/temhr/distrobox_steamos.ini
     owner: temhr
     group: root
     mode: 0770
