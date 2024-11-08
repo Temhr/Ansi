@@ -3,10 +3,8 @@
     path: /home/temhr/{{ item }}
     state: absent
   with_items:
-    - Music
     - Public
     - Templates
-    - Videos
 
 - name: users | temhr | create personal config directories
   tags: dotfiles,dotfiles-temhr
