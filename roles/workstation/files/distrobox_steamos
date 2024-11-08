@@ -1,0 +1,11 @@
+[steamos]
+#home=/home/temhr
+image=ghcr.io/linuxserver/steamos:latest
+#additional_packages="git vim tmux nodejs"
+#init=false
+nvidia=true
+pull=true
+root=false
+replace=true
+start_now=true
+exported_apps="steam"
