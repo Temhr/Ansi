@@ -2,7 +2,7 @@
 - name: distrobox | copy distrobox-assemble file
   tags: distrobox,copy,temhr,steam
   ansible.builtin.copy:
-    src: files/distrobox_steamos
+    src: files/distrobox_steamos.init
     dest: /home/temhr/distrobox_steamos.init
     owner: temhr
     group: root
