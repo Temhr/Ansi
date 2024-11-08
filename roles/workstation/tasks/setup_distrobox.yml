@@ -1,8 +1,9 @@
-# setup distrobox support
-- name: mk directories for distrobox containers
-  ansible.builtin.file:
-    path: /home/temhr/containers
-    state: directory
+# setup distrobox
+- name: distrobox | copy distrobox-assemble file
+  tags: distrobox,copy,temhr,steam
+  ansible.builtin.copy:
+    src: files/distrobox_steamos
+    dest: /home/temhr/distrobox_steamos.init
     owner: temhr
     group: root
     mode: 0770
