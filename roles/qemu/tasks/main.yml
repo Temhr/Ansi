@@ -1,1 +1,18 @@
+- block:
 
+  # Install QEMU and Virtual Machine Manager
+  - ansible.builtin.import_tasks: packages_qemu-vmm.yml
+  # Start Default Network for Networking
+  - ansible.builtin.import_tasks: setup_networking.yml
+  # Add User to libvirt to Allow Access to VMs
+  - ansible.builtin.import_tasks: users_libvirt-access.yml
+
+  # Install QEMU and Virtual Machine Manager
+  - ansible.builtin.import_tasks: packages_qemu-vmm.yml
+  # Start Default Network for Networking
+  - ansible.builtin.import_tasks: setup_networking.yml
+  # Add User to libvirt to Allow Access to VMs
+  - ansible.builtin.import_tasks: users_libvirt-access.yml
+
+  rescue:
+    - set_fact: task_failed=true
