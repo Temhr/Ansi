@@ -16,8 +16,8 @@
       - podman
       - distrobox
 
-- name: Create a distrobox container
-  become: true
-  become_user: temhr
-  ansible.builtin.command: 
-    cmd: distrobox-assemble create --file https://raw.githubusercontent.com/Temhr/Ansi/refs/heads/main/roles/workstation/files/distrobox_ubuntu.ini
+#- name: Create a distrobox container
+#  become: true
+#  become_user: temhr
+#  ansible.builtin.command: 
+#    cmd: distrobox-assemble create --file https://raw.githubusercontent.com/Temhr/Ansi/refs/heads/main/roles/workstation/files/distrobox_ubuntu.ini
