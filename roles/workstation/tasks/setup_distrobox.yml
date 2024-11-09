@@ -17,5 +17,7 @@
       - distrobox
 
 - name: Create a distrobox container
+  become: false
+  become_user: temhr
   ansible.builtin.command: 
     cmd: distrobox-assemble create --file https://raw.githubusercontent.com/Temhr/Ansi/refs/heads/main/roles/workstation/files/distrobox_ubuntu.ini
