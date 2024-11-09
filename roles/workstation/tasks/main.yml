@@ -18,7 +18,7 @@
   #- ansible.builtin.import_tasks: repositories/firefox_browser.yml
   
   # setup software environments
-  - ansible.builtin.import_tasks: setup_distrobox.yml
+  #- ansible.builtin.import_tasks: setup_distrobox.yml
   - ansible.builtin.import_tasks: setup_flatpak.yml
   
   # setup nfs share
