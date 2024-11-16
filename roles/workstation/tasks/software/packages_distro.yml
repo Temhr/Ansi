@@ -3,6 +3,7 @@
   ansible.builtin.package:
     state: latest
     name:
+      #- calibre
       - geany
       - geany-plugins
       - keepassxc
