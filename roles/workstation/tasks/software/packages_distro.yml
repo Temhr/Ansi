@@ -3,4 +3,6 @@
   ansible.builtin.package:
     state: latest
     name:
+      - geany
+      - geany-plugins
       - keepassxc
