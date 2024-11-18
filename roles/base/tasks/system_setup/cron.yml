@@ -53,8 +53,8 @@
   ansible.builtin.cron:
     name: "ansible weekly delete"
     user: ansibot
-    weekday: 2
-    hour: 1
+    weekday: 1
+    hour: 7
     minute: 30
     job: "cp /home/temhr/Ansi.txt /home/ansibot/log-$(uname -n)-$(date +'%Y-%m-%d').txt && rm /home/temhr/Ansi.txt /home/temhr/AnsiLog.txt"
 
