@@ -55,7 +55,7 @@
     user: ansibot
     weekday: 1
     hour: 7
-    minute: 30
+    minute: 35
     job: "cp /home/temhr/Ansi.txt /home/ansibot/log-$(uname -n)-$(date +'%Y-%m-%d').txt && rm /home/temhr/Ansi.txt /home/temhr/AnsiLog.txt"
 
 - name: system setup | cron | start service on boot
