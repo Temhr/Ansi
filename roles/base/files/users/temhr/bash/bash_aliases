@@ -34,6 +34,13 @@ alias watch='watch -d'
 alias weather='curl wttr.in'
 alias wget='wget -c'
 
+## Check video drivers in use
+alias vdr='lspci -n -n -k | grep -A 2 -e VGA -e 3D'
+## Check active GPU driver
+alias gpudr='glxinfo | grep -e OpenGL.vendor -e OpenGL.renderer'
+## List available and default GPU
+alias gpu='switcherooctl list'
+
 ## get top process eating memory
 alias mem5='ps auxf | sort -nr -k 4 | head -5'
 alias mem10='ps auxf | sort -nr -k 4 | head -10'
@@ -68,10 +75,4 @@ if [ -f /usr/bin/apt ]; then
   alias update='sudo apt update'
   alias upgrade='sudo apt update && sudo apt dist-upgrade && sudo apt autoremove && sudo apt clean'
   alias install='sudo apt install'
-fi
-
-if [ -f /usr/bin/pacman ]; then
-  alias update='sudo pacman -Syyy'
-  alias upgrade='sudo pacman -Syu'
-  alias install='sudo pacman -S'
 fi
